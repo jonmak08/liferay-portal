@@ -1,67 +1,57 @@
-<footer id="footer" role="contentinfo">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <h5 class="section-footer-heading">
-          <span class="theme-color-text">About Us</span>
-        </h5>
+<footer class="footer">
+	<div class="section-container">  
+		<div class="footer-section">
+			<h4 class="section-footer-heading">
+				<span class="theme-color-text">ABOUT US</span>
+			</h4>
+			
+			<div>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti dolorum, sint corporis nostrum, possimus unde eos vitae eius quasi saepe.
+			</div>
+		</div>
+	</div>
+	
+	<div class="section-container">
+		<div class="footer-section">
+			<h4 class="section-footer-heading">
+				<span class="theme-color-text">CONTACT</span>
+			</h4>
+			
+			<div id="location">
+				<a class="text-white" target="_blank">
+					<@clay["icon"] symbol="geolocation" />
+					1400 Montefino Ave, Diamond Bar, CA 91765
+				</a>
+			</div>
 
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti dolorum, 
-          sint corporis nostrum, possimus unde eos vitae eius quasi saepe.
-        </div>
-      </div>
+			<div id="phone">
+				<a class="text-white" target="_blank">
+					<@clay["icon"] symbol="phone" />
+					(877) 543-3729
+				</a>
+			</div>
 
-      <div class="col-sm-4">
-        <h5 class="section-footer-heading">
-          <span class="theme-color-text">Contact Info</span>
-        </h5>
-          <div id="contact">
-            <ul class="nav flex-column mx-auto">
-              <li class="mx-2">
-                  <div id="facebook">
-                    <a class="text-white" target="_blank">
-                      <@clay["icon"] symbol="geolocation" />
-                      1400 Montefino Ave, Diamond Bar, CA 91765
-                    </a>
-                  </div>
-              </li>
+			<div id="email">
+				<a class="text-white" target="_blank">
+					<@clay["icon"] symbol="envelope-closed" />
+					<a href="mailto:life.ray@liferay.com">
+						life.ray@liferay.com
+					</a>
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="section-container">
+		<div class="footer-section">
+			<h4 class="section-footer-heading">
+				<span class="theme-color-text">HOURS</span>
+			</h4>
 
-              <li class="mx-2">
-                <div id="facebook">
-                  <a class="text-white" target="_blank">
-                    <@clay["icon"] symbol="phone" />
-                    (877) 543-3729
-                  </a>
-                </div>
-              </li>
-
-              <li class="mx-2">
-                <div id="facebook">
-                  <a class="text-white" target="_blank">
-                    <@clay["icon"] symbol="envelope-closed" />
-                    <a href="mailto:life.ray@liferay.com">
-                      life.ray@liferay.com>
-                    </a>
-                  </a>
-                </div>
-              </li>
-            </ul>                 
-          </div>
-      </div>
-
-      <div class="col-sm-4">
-        <h5 class="section-footer-heading">
-          <span class="theme-color-text">Opening Hours</span>
-        </h5>
-        
-        <div>
-          Monday-Thursday<br>
-          10:00 AM - 11:00 PM <br>
-          Friday - Sunday<br>
-          12:00AM - 3:00 AM <br>
-       </div>
-      </div>
-    </div>
-  </div>
+			<div>
+				Monday - Thursday 10:00 AM - 11:00 PM <br>
+				Friday - Sunday 12:00AM - 3:00 AM <br>
+			</div>
+		</div>
+	</div>
 </footer>

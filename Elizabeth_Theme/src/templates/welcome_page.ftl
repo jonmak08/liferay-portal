@@ -57,8 +57,3 @@
         </div>
     </div>
 </div>
-  
-<div class="welcome-discover">
-    CONTENT
-</div>
-

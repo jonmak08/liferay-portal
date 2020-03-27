@@ -2,6 +2,10 @@
     background-color: #fff;
   
     #navigation-link {
-      color: #000;
+		color: #000;
+		
+		&:hover {
+			color: $theme-main-color;
+		}
     }
-  }
+}

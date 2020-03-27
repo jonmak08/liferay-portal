@@ -1,9 +1,3 @@
-window.addEventListener('scroll', function() { 
-  if (document.documentElement.scrollTop > 150) {
-    document.querySelector('header').classList.add('scrolled');
-  }
-
-  else {
-    document.querySelector('header').classList.remove('scrolled');
-  }
-})
+window.addEventListener('scroll', () => {
+	document.querySelector('header').classList.toggle('scrolled', document.documentElement.scrollTop>150);
+});

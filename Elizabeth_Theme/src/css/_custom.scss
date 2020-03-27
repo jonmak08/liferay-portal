@@ -3,26 +3,34 @@
 @import 'components/map';
 @import 'layout/footer';
 @import 'layout/navigation';
-@import 'layout/navigation-scrolled';
-@import 'layout/welcome-page';
+@import 'layout/navigation_scrolled';
+@import 'layout/welcome_page';
 
 body {
-  &.has-control-menu {
+    &.has-control-menu {
+        header {
+			margin-top: 0; 
 
-    header {
-      margin-top: 0; 
+			@include media-breakpoint-down(sm) {
+			margin-top: 48px;
+			}  
+        }
+  	}
 
-      @include media-breakpoint-down(sm) {
-        margin-top: 48px;
-      }  
-    }
-  }
+  	.initial-background {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background:
+			#3c3a3a
+			center center
+			fixed
+			url(../images/main_background.jpg)
+	}
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background:
-    url(../images/main-background.jpg)
-    center center
-    fixed
-    #3c3a3a
+	.default-background {
+		background-color: #fff;
+	}
 }
+
+
+

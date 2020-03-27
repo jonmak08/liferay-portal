@@ -1,57 +1,89 @@
 .theme-header {
-  background-color: #0000;
-  max-width: 100%;
-  position: fixed;
-  transition: 500ms ease;
-  width: 100vw;
-  z-index: 1;
+	background-color: #0000;
+	height: 12vh;
+	max-width: 100%;
+	position: fixed;
+	transition: 500ms ease;
+	width: 100vw;
+	z-index: 1;
 
-  .theme-user a {
-    color: $theme-main-color;
-  }
+	.theme-user {
+		justify-content: flex-end;
+	}
 
-  .user-avatar-link .lexicon-icon {
-    color: $theme-main-color;
-  }
+	.theme-user a {
+		color: $theme-main-color;
+	}
 
-  li.nav-item {
-    a.nav-link {
-      color: #fff;
-    }
+	.user-avatar-link .lexicon-icon {
+		color: $theme-main-color;
+	}
 
-    &:hover {
-      a {
-        color: $theme-main-color;
-      }
+	li.nav-item {
+		a.nav-link {
+			color: #fff;
+		}
 
-      ul.child-menu {
-        display: block;
-        margin-top: -10px;
-      }
-    }
+		&:hover {
+			a {
+				color: $theme-main-color;
+			}
 
-    &.selected {
-      height: 73px;
+			ul.child-menu {
+				display: block;
+				margin-top: -10px;
+			}
+		}
 
-      & a.nav-link {
-        color: $theme-main-color;
-      }
-    }
+		&.selected {
+			height: 73px;
 
-    @include media-breakpoint-down(sm) {
-      ul.child-menu {
-        display: block;
-      }
-    }    
-  }
+			& a.nav-link {
+				color: $theme-main-color;
+			}
+		}
 
-  li.selected {
-    & a.nav-link{
-      color: $theme-main-color;
-    }
-  }
+		@include media-breakpoint-down(sm) {
+			ul.child-menu {
+				display: block;
+			}
+		}    
+	}
+
+	li.selected {
+		& a.nav-link {
+			color: $theme-main-color;
+		}
+	}
 }
 
 .navbar-nav {
-  justify-content: center;
+  	justify-content: center;
+}
+
+.burger {
+  	display: none;
+}
+
+.burger div {
+	background-color: #fff;
+	height: 3px;
+	margin: 5px;
+	width: 25px;
+}
+
+@media screen and (max-width:768px) {
+	body {
+		overflow-x: hidden;
+	}
+
+	.theme-header {
+		height: 50vh;
+		width: 20vw;
+	}
+
+	.navbar-nav {
+		display: block;
+	}
+
 }

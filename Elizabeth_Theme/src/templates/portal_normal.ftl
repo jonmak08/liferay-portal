@@ -30,23 +30,28 @@
 
 <div class="container-fluid mt-0 pt-0 px-0" id="wrapper">
 	<section id="content">
-		<#include "${full_templates_path}/welcome_page.ftl" />
-		
-		<h2 class="hide-accessible" role="heading" aria-level="1">
-			${the_title}
-		</h2>
-		
-		<#if selectable>
-			<@liferay_util["include"] page=content_include />
-		<#else>
-			${portletDisplay.recycle()}
+		<div class="initial-background">
+			<#include "${full_templates_path}/welcome_page.ftl" />
+		</div>
 
-			${portletDisplay.setTitle(the_title)}
-
-			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
+		<div class="default-background">
+			<h2 class="hide-accessible" role="heading" aria-level="1">
+				${the_title}
+			</h2>
+		
+			<#if selectable>
 				<@liferay_util["include"] page=content_include />
-			</@>
-		</#if>
+			<#else>
+				${portletDisplay.recycle()}
+
+				${portletDisplay.setTitle(the_title)}
+
+				<@liferay_theme["wrap-portlet"] page="portlet.ftl">
+					<@liferay_util["include"] page=content_include />
+				</@>
+			</#if>
+		</div>
+
 	</section>
 
 	<#if show_map>
