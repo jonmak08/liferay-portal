@@ -1,4 +1,4 @@
-<footer class="footer" id="footer">
+0<footer class="footer" id="footer">
     <div class="footer--top">
         <a class="footer--phone">Phone Number Here</a>
         <a class="footer--email">Email Here</a>
@@ -9,7 +9,7 @@
 
         <ul>
             <li>
-                <a>Facebook</a>
+                <a hre="#">Facebook</a>
             </li>
         </ul>
     </div>

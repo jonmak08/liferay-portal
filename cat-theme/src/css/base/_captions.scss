@@ -1,22 +1,22 @@
 .caption {
     
-    @include flex($justify-content: flex-start);
+    @include flex($justify-content:flex-start);
 
     margin-bottom: 2rem;
     opacity: 0.8;
 
-    @include respond(phone){
+    @include respond(phone) {
         margin-bottom: 1rem;
     }
 
     &--header {
         margin-bottom: 3rem;
 
-        @include respond(tablet-landscape){
+        @include respond(tablet-landscape) {
             margin-bottom: 2rem;
         }
     
-        @include respond(phone){
+        @include respond(phone) {
             margin-bottom: 1rem;
         }
     }
@@ -26,7 +26,7 @@
         display: inline-block;
         width: 4rem;
 
-        &--darkbg {
+        &--dark-bg {
             border: 0.5px solid $color-header-text-light;
         }
     }

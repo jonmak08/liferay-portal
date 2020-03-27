@@ -1,10 +1,10 @@
 .btn {
     &--main {
-
-        @include flex ($justify-content : flex-start);
-
         border: 0.5px solid $color-header-text-light;
         border-radius: 4rem;
+
+        @include flex ($justify-content:flex-start);
+
         height: 5rem;
         font-size: 1.5rem;
         transition: all 0.5s ease-in-out;
@@ -15,19 +15,19 @@
         }
 
         a {
-
-            @include flex ($justify-content : flex-start);
-
             cursor: pointer;
+
+            @include flex ($justify-content:flex-start);
+
         }
         
         &--arrow {
-
-            @include flex;
-            
             background-color: $color-button-border-light;
             border-radius: 50%;
             color: $color-button-text-light;
+
+            @include flex;
+
             height: 3rem;
             margin-left: 2rem;
             width: 3rem;
@@ -35,13 +35,6 @@
 
         &--text {
             margin-left: 2rem;
-
-            p {
-                font-size: 1.8rem;
-                font-style: italic;
-                letter-spacing: 0.15rem;
-                margin-bottom: 3rem;
-            }
         }
     }
 }

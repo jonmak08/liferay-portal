@@ -1,8 +1,9 @@
 #navigation {
     align-items: center;
-    display: flex;
+
+    @include flex(center, flex-start, space-between);
+
     position: fixed;
-    justify-content: space-between;
     width: 100%;
     z-index: 5000;
 }
@@ -24,9 +25,9 @@
 }
 
 .menu--wrapper {
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
+
+    @include flex(center, flex-start, flex-end);
+
     margin-right: 2rem;
     width: 5%;
 }
@@ -75,15 +76,15 @@
     }
 }
 
-.nav {
+.navi {
 
     @include flex(center, row, space-between);
     
     position: fixed;
     z-index: 1600;
 
-    &:before,
-    &:after {
+    &:after,
+    &:before {
         background: rgba(#eaeaea, 0.2);
         content: '';
         height: 100vh;
@@ -136,7 +137,6 @@
         }
 
         &:hover {
-
             &:before {
                 width: 100%;
             }
@@ -174,11 +174,11 @@ body.nav-active {
         }
     }
 
-    .nav {
+    .navi {
         visibility: visible;
 
-        &:before,
-        &:after {
+        &:after,
+        &:before {
             transform: translateX(0%) translateY(50%);
         }
 
@@ -198,7 +198,7 @@ body.nav-active {
             }
 
             @include respond(phone) {
-                @include flex($align-items: flex-start);
+                @include flex($align-items:flex-start);
             }
 
             &--right {

@@ -39,7 +39,7 @@
 
         &--exp {
 
-            @include flex($justify-content: flex-start);
+            @include flex($justify-content:flex-start);
 
             &--number {
                 color: $color-text-black;
@@ -54,12 +54,12 @@
         }
     }
 
-    &--img {
-
-        @include flex;
-        
+    &--img {        
         background: $color-background-grey;
         bottom: 0;
+
+        @include flex;
+
         left: auto;
         position: absolute;
         right: 0;

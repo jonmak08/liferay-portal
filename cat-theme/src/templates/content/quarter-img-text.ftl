@@ -14,7 +14,7 @@
                 <div class="paragraph">I have self-doubt. I have insecurity. I have fear of failure. I have nights when I show up at the arena and I'm like, 'My back hurts, my feet hurt, my knees hurt. I don't have it. I just want to chill.' We all have self-doubt. You don't deny it, but you also don't capitulate to it. You embrace it.</div>
 
                     <div class="btn--main">
-                        <a>
+                        <a hre="#">
                             <div class="btn--main--arrow">&#8658;</div>
                             <span class="btn--main--text">Learn More</span>
                         </a>

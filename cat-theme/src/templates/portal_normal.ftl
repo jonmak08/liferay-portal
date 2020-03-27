@@ -3,7 +3,6 @@
 <#include init />
 
 <html class="${root_css_class}" dir="<@liferay.language key="lang.dir" />" lang="${w3c_language_id}">
-
     <head>
         <title>${the_title} - ${company_name}</title>
 
@@ -20,24 +19,30 @@
         <@liferay.control_menu />
 
         <div class="container-fluid" id="wrapper">
-            <#include "${full_templates_path}/header/navigation.ftl" />
+        	<#if !is_signed_in>
+			    <a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
+		    </#if>
+
+            <#if has_navigation && is_setup_complete>
+                <#include "${full_templates_path}/header/navigation.ftl" />
+            </#if>
 
             <#include "${full_templates_path}/header/hero.ftl" />
 
             <main>
-                <#include "${full_templates_path}/content/text_small_img.ftl" />
+                <#include "${full_templates_path}/content/text-small-img.ftl" />
 
-                <#include "${full_templates_path}/content/small_cards.ftl" />
+                <#include "${full_templates_path}/content/small-cards.ftl" />
 
-                <#include "${full_templates_path}/content/large_img_text.ftl" />
+                <#include "${full_templates_path}/content/large-img-text.ftl" />
 
-                <#include "${full_templates_path}/content/large_cards.ftl" />
+                <#include "${full_templates_path}/content/large-cards.ftl" />
 
-                <#include "${full_templates_path}/content/quarter_img_text.ftl" />
+                <#include "${full_templates_path}/content/quarter-img-text.ftl" />
 
-                <#include "${full_templates_path}/content/carousel_card.ftl" />
+                <#include "${full_templates_path}/content/carousel-card.ftl" />
 
-                <#include "${full_templates_path}/content/multiple_cards.ftl" />
+                <#include "${full_templates_path}/content/multiple-cards.ftl" />
             </main>
 
             <#include "${full_templates_path}/footer/footer.ftl" />
@@ -51,5 +56,4 @@
         
         <!-- endinject -->
     </body>
-
 </html>

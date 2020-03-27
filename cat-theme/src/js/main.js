@@ -72,4 +72,3 @@ const changeHamburgerColor = element => {
 		})
 	}
 }
-

@@ -1,10 +1,9 @@
 .multiple-cards {
     .card {
+        background: $color-background-grey;
 
         @include flex;
 
-        background: $color-background-grey;
-        box-sizing: border-box;
         margin-bottom: 0.2rem;
         margin-right: 0.2rem;
         min-height: 24rem;
@@ -49,7 +48,7 @@
 
             &--desc {
 
-                @include flex($flex-direction: column);
+                @include flex($flex-direction:column);
                 
                 height: 100%;
                 left: -100%;
@@ -74,11 +73,11 @@
                 transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
                 width: 100%;
 
-                & .card--info--icon {
+                &.card--info--icon {
                     display: none;
                 }
 
-                & .card--info--desc {
+                &.card--info--desc {
                     left: 0;
                     opacity: 1;
                     right: 0;

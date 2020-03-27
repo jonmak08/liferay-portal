@@ -15,13 +15,13 @@
 
     &--top {
 
-        @include flex($justify-content: flex-start);
+        @include flex($justify-content:flex-start);
 
         margin-bottom: 1rem;
     }
 
     &--bottom {
-        @include flex($justify-content: space-between);
+        @include flex($justify-content:space-between);
 
         @include respond(phone) {
             @include flex(flex-start, flex-start, column);
@@ -37,11 +37,11 @@
             }
         }
 
-        ul {
-
-            @include flex($justify-content: flex-start);
-            
+        ul {            
             display: inline-block;
+
+            @include flex($justify-content:flex-start);
+
             list-style: none;
 
             @include respond(phone) {

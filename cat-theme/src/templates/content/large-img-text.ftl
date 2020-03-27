@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="btn--main">
-                    <a>
+                    <a hre="#">
                         <div class="btn--main--arrow">&#8658;</div>
                         <span class="btn--main--text">Learn More</span>
                     </a>

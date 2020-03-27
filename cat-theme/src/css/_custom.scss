@@ -8,7 +8,6 @@
 @import 'base/base';
 @import 'base/buttons';
 @import 'base/captions';
-@import 'base/typography';
 
 /* ---------- Navigation ---------- */
 
@@ -17,13 +16,13 @@
 
 /* ---------- Content ---------- */
 
-@import 'content/text_small_img';
-@import 'content/small_cards';
-@import 'content/large_img_text';
-@import 'content/_large_cards.scss';
-@import 'content/quarter_img';
-@import 'content/carousel_card';
-@import 'content/multiple_cards';
+@import 'content/text-small-img';
+@import 'content/small-cards';
+@import 'content/large-img-text';
+@import 'content/large-cards';
+@import 'content/quarter-img';
+@import 'content/carousel-card';
+@import 'content/multiple-cards';
 
 /* ---------- Footer ---------- */
 
