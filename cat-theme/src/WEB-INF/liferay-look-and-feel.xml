@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.3.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_3_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.3.0+</version>
+	</compatibility>
+	<theme id="cat-theme" name="Cat Theme">
+		<template-extension>ftl</template-extension>
+		
+		<settings>
+			<setting configurable="true" key="Dark Hero Image" type="checkbox" value="true" />
+			<setting configurable="true" key="Show main button" type="checkbox" value="true" />
+			<setting configurable="true" key="Show footer" type="checkbox" value="true" />
+			<setting configurable="true" key="Show number" type="checkbox" value="true" />
+			<setting configurable="true" key="Show email" type="checkbox" value="true" />
+			<setting configurable="true" key="Show credits" type="checkbox" value="true" />			
+			<setting configurable="true" key="Show social" type="checkbox" value="true" />
+			<setting configurable="true" key="Hero image URL"
+			type="text" value="" />
+			<setting configurable="true" key="Hero title"
+			type="text" value="Cats In Space" />
+			<setting configurable="true" key="Hero caption"
+			type="text" value="Sometimes, we need to check the time, wondering when our work or meeting will finish, without getting caught by others. Sometimes, we need to check the time, wondering when our work or meeting will finish, without getting caught by others." />
+			<setting configurable="true" key="Main button link"
+			type="text" value="#" />
+			<setting configurable="true" key="Phone number"
+			type="text" value="000-000-0000" />
+			<setting configurable="true" key="Email"
+			type="text" value="test@Liferay.com" />
+			<setting configurable="true" key="Credits" type="text" value="@2020 Cat company" />
+			<setting configurable="true" key="Facebook URL" type="text" value="" />
+			<setting configurable="true" key="Instagram URL" type="text" value="" />
+			<setting configurable="true" key="LinkedIn URL" type="text" value="" />
+			<setting configurable="true" key="Twitter URL" type="text" value="" />
+		</settings>
+	</theme>
+</look-and-feel>

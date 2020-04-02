@@ -1,0 +1,83 @@
+.text-small-img {
+    position: relative;
+
+    .container {
+        @include respond(tablet-portrait) {
+            max-width: 100%;
+        }
+    }
+    &--header {
+        color: $color-text-dark;
+        font-weight: 800;
+        line-height: 1.2;
+        z-index: 100;
+
+        &--title {
+            color: $color-text-black;
+            text-align: right;
+
+            @include respond(tablet-portrait) {
+                text-align: left;
+            }
+        }
+        &--desc {
+            margin-bottom: 4rem;
+            max-width: 37rem;
+
+            @include respond(tablet-portrait) {
+                max-width: 100%;
+            }
+        }
+        &--signature {
+            font-size: 1.4rem;
+            opacity: 0.7;
+        }
+        &--exp {
+            @include flex($justify-content:flex-start);
+
+            &--number {
+                color: $color-text-black;
+                font-size: 12rem;
+                margin-right: 2rem;
+            }
+
+            &--text {
+                font-size: 1.8rem;
+                font-weight: 400;
+            }
+        }
+    }
+    &--img {        
+        background: $color-background-grey;
+        bottom: 0;
+
+        @include flex;
+
+        left: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: calc(50% + 5rem);
+
+        @include respond(tablet-portrait) {
+            height: 100vh;
+            position: relative;
+            width: 100%;
+        }
+        &--container {
+            background: url('../images/cat_img.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 70%;
+            width: 80%;
+
+            @include respond(tablet-landscape) {
+                background-position-x: 50%;
+            }
+            @include respond(phone) {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}

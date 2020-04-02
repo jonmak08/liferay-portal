@@ -1,0 +1,51 @@
+.caption {
+    @include flex($justify-content:flex-start);
+
+    margin-bottom: 2rem;
+    opacity: 0.8;
+
+    @include respond(phone) {
+        margin-bottom: 1rem;
+    }
+    &--header {
+        margin-bottom: 3rem;
+
+        @include respond(tablet-landscape) {
+            margin-bottom: 2rem;
+        }
+        @include respond(phone) {
+            margin-bottom: 1rem;
+        }
+    }
+    &--line {
+        border: 0.5px solid $color-background-black;
+        display: inline-block;
+        width: 4rem;
+
+        &--dark-bg {
+            border: 0.5px solid $color-header-text-light;
+        }
+    }
+    &--title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+        line-height: 1.2;
+        margin: 0 2rem;
+        position: relative;
+        text-transform: uppercase;
+
+        &--signature {
+            color: $color-text-black;
+            font-size: 1.7rem;
+            margin: 0 1rem 0 0;
+        }
+        &--dot {
+            font-size: 1.7rem;
+            margin-left: 1rem;
+        }
+    }
+    &--signature {
+        margin-bottom: 1rem;
+    }
+}

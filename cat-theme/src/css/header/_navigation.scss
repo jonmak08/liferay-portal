@@ -1,0 +1,287 @@
+#navigation {
+    align-items: center;
+
+    @include flex(center, flex-start, space-between);
+    position: fixed;
+    z-index: 20;
+}
+#portlet_com_liferay_login_web_portlet_LoginPortlet {
+    background: $color-text-light;
+    bottom: 0;
+    height: 100%;
+
+    @include flex(center, column, center);
+
+    margin-bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+.navigation {
+    transition: 0.5s ease;
+    width: 100%;
+
+    &--scroll {
+        background: $color-text-light;
+        border-color: $nav-scroll-border;
+        border-bottom:2px solid $nav-scroll-border;
+    }
+}
+.site-content {
+    @include flex;
+
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 110rem;
+
+    &--headline {
+        color: $color-header-text-light;
+        font-size: calc(2vw + 1rem);
+        font-weight: 200;
+    }
+}
+.menu--wrapper {
+    @include flex(center, flex-start, flex-end);
+
+    margin-right: 3rem;
+    width: 5%;
+}
+.menu-icon {
+    cursor: pointer;
+    height: $nav-icon-size;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    position: relative;
+    width: $nav-icon-size;
+
+    &--line {
+        background-color: $color-header-text-light;
+        display: block;
+        height: 0.2rem;
+        margin-bottom: 0.4rem;
+        transition: transform 0.2s ease, background-color 0.5s ease;
+        width: $nav-icon-size;
+
+        &--dark {
+            background-color: $color-text-black;
+            transition: transform 0.2s ease, background-color 0.5s ease;
+        }
+    }
+    &--line-left {
+        width: $nav-icon-size / 2;
+    }
+    &--line-right {
+        float: right;
+        width: $nav-icon-size / 2;
+    }
+}
+.menu-title {
+    color: $color-header-text-light;
+    cursor: pointer;
+    font-size: 2rem;
+
+    &--dark {
+        color: $color-text-black;
+        transition: 0.5s ease;
+    }
+    @include respond(phone) {
+        display: none;
+    }
+}
+
+.menu-liferay {
+    margin-left: 1rem;
+}
+
+.cat--navi {
+    @include flex(center, row, space-between);
+    
+    position: fixed;
+    z-index: 10;
+
+    &:after,
+    &:before {
+        background: rgba(#eaeaea, 0.2);
+        content: '';
+        height: 100vh;
+        position: fixed;
+        transform: translateX(0%) translateY(-100%);
+        transition: transform cubic-bezier(.77, 0, 0.175, 1) $nav-animation-transition-length + s;
+        width: 100vw;
+    }
+    &:after {
+        background: $nav-color-active-background;
+        transition-delay: 0s;
+    }
+    &:before {
+        transition-delay: 0.1s;
+    }
+    &--logo {
+        margin-left: 2rem;
+
+        @include respond(phone) {
+            margin-left: 0;
+        }
+    }
+
+    &--list {
+        opacity: 0;
+    }
+    &--list-item {
+        color: $color-header-text-light;
+        display: inline-block;
+        margin-right: 2.5rem;
+        position: relative;
+        opacity: 0;
+        transform: translate(0%, 100%);
+        transition: ease $nav-animation-transition-length + s;
+        transition-delay: $nav-animation-transition-length + s;
+
+        &:before {
+            background: $color-header-text-light;
+            content: '';
+            height: 0.1rem;
+            position: absolute;
+            top: 100%;
+            transform: translate(0%, 0%);
+            transition: all 0.3s ease;
+            width: 2rem;
+
+            &.selected {
+                width: 100%;
+            }
+        }
+        &:hover {
+            &:before {
+                width: 100%;
+            }
+        }
+        &.selected {
+            &:before {
+                background: $color-header-text-light;
+                content: '';
+                height: 0.1rem;
+                position: absolute;
+                top: 100%;
+                transform: translate(0%, 0%);
+                transition: all 0.3s ease;
+                width: 100%;
+            }
+        }
+    }
+}
+body.nav-active {
+
+    .navigation {
+        transition: 0.5s ease;
+        width: 100%;
+    
+        &--scroll {
+            background: $nav-color-active-background;
+            border: none;
+        }
+    }
+    .liferay-nav-active {
+        width: 83%;
+        transition: 0.5s ease;
+    }
+    .menu-title {
+        color: $color-header-text-light;
+        cursor: pointer;
+        font-size: 2rem;
+    }
+    .menu-icon {
+        &--line {
+            background-color: $color-header-text-light;
+            transform: translateX(0px) rotate(-45deg);
+        }
+        &--line-left {
+            transform: translateX(1px) rotate(45deg);
+        }
+        &--line-right {
+            transform: translateX(-2px) rotate(45deg);
+        }
+        &--dark {
+            background-color: $color-text-black;
+            transition: transform 0.2s ease, background-color 0.5s ease;
+        }
+    }
+    .cat--navi {
+        visibility: visible;
+
+        &:after,
+        &:before {
+            transform: translateX(0%) translateY(50%);
+        }
+        &--content {
+            cursor: pointer;
+            font-weight: 200;
+            position: fixed;
+            text-align: center;
+            top: 50%;
+            transform: translate(0%, -50%);
+            width: 100%;
+            z-index: 100;
+
+            @include respond(phone) {
+                @include flex($align-items:flex-start);
+            }
+            &--right {
+                left: 50%;
+            }
+        }
+        &--list {
+			align-items: flex-start;
+			display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            opacity: 1;
+            margin-left: 20rem;
+            transition: opacity 0.2s ease-in;
+
+            @include respond(phone) {
+                margin-left: 0;
+            }
+        }
+        &--list-item {
+            font-size: calc(2vw + 1rem);
+            list-style-type: none;
+            opacity: 1;
+            transform: translateX(0%);
+            transition-delay: $nav-animation-transition-length + s;
+
+            @include respond(tablet-landscape) {
+                font-size: 4rem;
+            }
+            &--sub {
+                font-size: 3rem;
+                font-weight: 500;
+                line-height: 1.7;
+                overflow: inherit;
+                text-align: left;
+                width: 100%;
+            }
+        }
+    }
+}
+.liferay-nav-active {
+    width: 83%;
+    transition: 0.5s ease;
+}
+.sign-in {
+    @include flex;
+
+    width: 10rem;
+
+    &:hover {
+        text-decoration: none; 
+    }
+    .lexicon-icon-user {
+        color: $color-text-light;
+        margin-top: 0;
+    }
+    .taglib-icon-label {
+        color: $color-text-light;
+    }
+}

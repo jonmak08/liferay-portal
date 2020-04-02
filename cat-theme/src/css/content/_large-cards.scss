@@ -1,0 +1,84 @@
+.large-card-group {
+    &--wrapper {
+        margin-bottom: 7rem;
+    }
+    &--container {
+        padding: 0;
+        width: 100%;
+    }
+}
+.large-card {
+    display: inline-block;
+    height: 70vh;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 33%;
+
+    @include respond(tablet-landscape) {
+        height: 50vh;
+    }
+    @include respond(phone) {
+        height: 70vh;
+        width: 100%;
+    }
+    &--overlay {
+        background: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        position: absolute;
+        transition: 0.6s ease;
+        transition: transform 0.6s, background-color 0.6s cubic-bezier(0.08, 0.03, 0.22, 0.87), -webkit-transform 0.6s;
+        width: 100%;
+
+        &:hover {
+            animation-timing-function: linear;
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.2);
+            transition: 0.6s ease;
+            
+            &.large-card--info {
+                animation-timing-function: linear;
+                bottom: 10rem;
+                transition: 0.6s ease;
+
+                @include respond(tablet-portrait) {
+                    bottom: 3rem;
+                }
+                span {
+                    animation-timing-function: linear;
+                    opacity: 1;
+                    transition: opacity 0.6s ease;
+                }
+            }
+        }
+    }
+    &--info {
+        animation-timing-function: linear;
+        bottom: 0;
+        cursor: pointer;
+
+        @include flex(center, column, flex-end);
+
+        left: 50%;
+        padding: 2.5rem 1.5rem 3rem;
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, 0);
+        transition: 0.6s ease;
+        width: 90%;
+
+        h5 {
+            color: rgba(255, 255, 255, 0.69);
+        }
+        h4 {
+            color: $color-header-text-light;
+        }
+        span {
+            color: $color-header-text-light;
+            letter-spacing: 0.2rem;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            text-transform: uppercase;
+        }
+    }
+}

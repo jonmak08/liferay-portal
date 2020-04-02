@@ -1,0 +1,84 @@
+.multiple-cards {
+    .card {
+        background: $color-background-grey;
+
+        @include flex;
+
+        margin-bottom: 0.2rem;
+        margin-right: 0.2rem;
+        min-height: 24rem;
+        overflow: hidden;
+        padding: 1.5rem;
+        position: relative;
+        width: calc(33.33% - 0.2rem);
+
+        @include respond(phone) {
+            margin-right: 0;
+            width: 100%;
+        }
+        &--img {
+            background: url('../images/cat_drawing.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            vertical-align: middle;
+            width: 100%;
+        }
+        &--info {
+            background: $color-background-cards;
+            border-radius: 0 2rem 0 0;
+            bottom: 0;
+            display: inline-block;
+            height: 4rem;
+            left: 0;
+            position: absolute;
+            text-align: center;
+            width: 4rem;
+            z-index: 1000;
+
+            &--icon {
+                cursor: pointer;
+                font-size: 1rem;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &--desc {
+                @include flex($flex-direction:column);
+                
+                height: 100%;
+                left: -100%;
+                opacity: 0;
+                padding: 10%;
+                position: absolute;
+                width: 100%;
+
+                h5 {
+                    margin-bottom: 2rem;
+                }
+
+                a {
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                }
+            }
+            &:hover {
+                border-radius: 0;
+                height: 100%;
+                transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+                width: 100%;
+
+                &.card--info--icon {
+                    display: none;
+                }
+                &.card--info--desc {
+                    left: 0;
+                    opacity: 1;
+                    right: 0;
+                    top: 0;
+                    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+                }
+            }
+        }
+    }
+}

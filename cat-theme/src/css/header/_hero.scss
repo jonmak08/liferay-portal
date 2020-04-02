@@ -1,0 +1,95 @@
+.hero {
+    align-items: center;
+    color: $color-header-text-light;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    justify-content: center;
+
+    @include respond(phone) {
+        flex-direction: column;
+    }
+
+    &--img {
+        background: url('../images/hero/cat_hero_compressed.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+
+        @include respond(tablet-landscape) {
+            background-position-x: 50%;
+        }
+    }
+    &--wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10rem;
+
+        @include respond(tablet-portrait) {
+            margin-bottom: 0rem;
+        }
+        @include respond(phone) {
+            margin-top: 8rem;
+        }
+    }
+    &--category {
+        @include flex($justify-content:flex-start);
+        
+        margin-bottom: 3rem;
+        opacity: 0.8;
+
+        @include respond(tablet-landscape) {
+            margin-bottom: 2rem;
+        }
+        @include respond(phone) {
+            margin-bottom: 1rem;
+        }
+        hr {
+            border: 0.5px solid $color-header-text-light;
+            display: inline-block;
+            width: 4rem;
+        }
+        span {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.2rem;
+            margin-left: 2rem;
+            position: relative;
+            text-transform: uppercase;
+        }
+    }
+    &--title {
+        font-size: 6.5rem;
+        font-weight: 600;
+        letter-spacing: -0.01rem;
+        margin-bottom: 3rem;
+        white-space: nowrap;
+
+        @include respond(tablet-portrait) {
+            margin-bottom: 2rem;
+        }
+        @include respond(phone) {
+            font-size: 4.5rem;
+        }
+    }
+
+    &--description {
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        line-height: 2.4rem;
+        margin-bottom: 3rem;
+        max-width: 40%;
+
+        @include respond(tablet-portrait) {
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+        }
+        @include respond(phone) {
+            max-width: 100%;
+        }
+    }
+}

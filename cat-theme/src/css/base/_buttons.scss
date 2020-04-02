@@ -1,0 +1,41 @@
+.btn {
+    &--main {
+        border: 0.5px solid $color-header-text-light;
+        border-radius: 4rem;
+
+        @include flex ($justify-content:flex-start);
+
+        height: 5rem;
+        font-size: 1.5rem;
+        transition: all 0.5s ease-in-out;
+        width: 17rem;
+
+        &:hover {
+            transform: scale(1.1) perspective(1px);
+        }
+        a {
+            color: $color-text-light;
+            cursor: pointer;
+
+            @include flex ($justify-content:flex-start);
+
+            &:hover {
+                text-decoration: none; 
+            }
+        }
+        &--arrow {
+            background-color: $color-text-light;
+            border-radius: 50%;
+            color: $color-button-text-light;
+
+            @include flex;
+
+            height: 3rem;
+            margin-left: 2rem;
+            width: 3rem;
+        }
+        &--text {
+            margin-left: 2rem;
+        }
+    }
+}

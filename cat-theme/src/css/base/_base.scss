@@ -1,0 +1,104 @@
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: antialiased;
+}
+html {
+    font-size: 62.5%; 
+    overflow-x: hidden;
+}
+body {
+    box-sizing: border-box;
+    margin-top: 5rem;
+    padding: 0;
+    overflow-x: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    
+    @include respond(tablet-landscape) {
+        margin-top: 0;
+        padding: 0;
+    }
+}
+#wrapper {
+    padding: 0;
+}
+*:focus {
+    outline: none !important;
+}
+.main {
+    transition: 0.5s;
+}
+.control-menu-container, .control-menu {
+    position: fixed !important;
+    width: 100%;
+}
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;    
+
+    @include respond(phone) {
+        font-size: 2.8rem;
+    }
+}
+h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 0.25rem;
+    margin-bottom: 2rem;
+
+    @include respond(phone) {
+        font-size: 1.8rem;
+    }
+}
+h4, h5 {
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+}
+h4 {
+    font-size: 2.5rem;
+}
+h5 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+h6 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-block-end: 2.33rem;
+    margin-block-start: 2.33rem;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+}
+a {
+    text-decoration: none;
+}
+section {
+    margin: 12rem 0;
+
+    @include respond(tablet-landscape) {
+        margin: 8rem 0;
+    }
+}
+span {
+    font-size: 1.5rem;
+}
+.paragraph {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 2;
+    margin-block-end: 1em;
+    margin-block-start: 1em;
+    margin-inline-end: 0rem;
+    margin-inline-start: 0rem;
+
+    @include respond(tablet-portrait) {
+        font-size: 1.3rem;
+    }
+}

@@ -1,0 +1,75 @@
+.footer {
+    color: $color-text-dark;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4rem;
+    line-height: 1.6;
+    font-variant-numeric: proportional-nums;
+    padding: 0 5rem 3rem;
+
+    @include respond(phone) {
+        margin-left: 0;
+        padding: 0 3rem 3rem 1.5rem;
+    }
+    &--top {
+        @include flex($justify-content:flex-start);
+
+        margin-bottom: 1rem;
+    }
+    &--bottom {
+        @include flex($justify-content:space-between);
+
+        @include respond(phone) {
+            @include flex(flex-start, flex-start, column);
+        }
+
+        .copyright {
+            display: inline-block;
+            font-size: 1.1rem;
+
+            @include respond(phone) {
+                margin: 0;
+                order: 2;
+            }
+        }
+        ul {            
+            display: inline-block;
+
+            @include flex($justify-content:flex-start);
+
+            list-style: none;
+
+            @include respond(phone) {
+                order: 1;
+            }
+            li {
+                a{
+                    color: $color-text-dark;
+                    font-size: 1.1rem;
+                    font-variant-numeric: proportional-nums;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.4rem;
+                    line-height: 1.6;
+
+                    &:hover { 
+                        text-decoration: none; 
+                    } 
+                }
+            }
+        }
+    }
+    &--phone {
+        margin-bottom: 0;
+        margin-right: 3rem;
+    }
+    &--phone, &--email {
+        color: $color-text-dark;
+
+        &:hover {
+            color: $color-text-dark;
+            text-decoration: none; 
+        } 
+    }
+}
