@@ -19,7 +19,6 @@
         <@liferay.control_menu />
 
         <div class="container-fluid" id="wrapper">
-
             <#if has_navigation && is_setup_complete>
                 <#include "${full_templates_path}/header/navigation.ftl" />
             </#if>
@@ -27,7 +26,6 @@
             <#include "${full_templates_path}/header/hero.ftl" />
 
             <main>
-
                 <section id="content">
                     <h2 class="hide-accessible" role="heading" aria-level="1">${the_title}</h2>
 
@@ -43,19 +41,6 @@
                         </@>
                     </#if>
                 </section>
-                <#--  <#include "${full_templates_path}/content/text-small-img.ftl" />
-
-                <#include "${full_templates_path}/content/small-cards.ftl" />
-
-                <#include "${full_templates_path}/content/large-img-text.ftl" />
-
-                <#include "${full_templates_path}/content/large-card-group.ftl" />
-
-                <#include "${full_templates_path}/content/quarter-img-text.ftl" />
-
-                <#include "${full_templates_path}/content/carousel-card.ftl" />
-
-                <#include "${full_templates_path}/content/multiple-cards.ftl" />  -->
             </main>
 
             <#if show_footer>
