@@ -1,0 +1,20 @@
+.burger-header {
+    display: none;
+    justify-content: flex-end;
+	position: absolute;
+	width: 100vw;
+}
+
+.burger-logo {
+    justify-content: flex-end;
+    width:48%;
+}
+
+.burger-user {
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+.inactive-user {
+    display: none;
+}

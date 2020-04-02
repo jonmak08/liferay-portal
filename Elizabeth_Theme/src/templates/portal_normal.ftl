@@ -24,6 +24,7 @@
 	<div class="container-fluid" id="banner" role="banner">
 		<#if has_navigation>
 			<#include "${full_templates_path}/navigation.ftl" />
+			<#include "${full_templates_path}/burger_header.ftl" />
 		</#if>
 	</div>
 </header>

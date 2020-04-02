@@ -9,6 +9,14 @@
 		<template-extension>ftl</template-extension>
 		<settings>
   			<setting configurable="true" key="show-footer" type="checkbox" value="true" />
+			<setting configurable="true" key="section-one-title" type="text" value="ABOUT US" />
+			<setting configurable="true" key="section-two-title" type="text" value="CONTACT" />
+			<setting configurable="true" key="section-three-title" type="text" value="HOURS" />
+			<setting configurable="true" key="section-one-content" type="textarea" value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti dolorum, sint corporis nostrum, possimus unde eos vitae eius quasi saepe." />
+			<setting configurable="true" key="section-two-address" type="text" value="1400 Montefino Ave, Diamond Bar, CA 91765" />
+			<setting configurable="true" key="section-two-phone" type="text" value="(877) 543-3729" />
+			<setting configurable="true" key="section-two-mail" type="text" value="life.ray@liferay.com" />
+			<setting configurable="true" key="section-three-content" type="textarea" value="Monday - Thursday 10:00 AM - 11:00 PM <br/>Friday - Sunday 12:00AM - 3:00 AM" />
 			<setting configurable="true" key="show-map" type="checkbox" value="true" />
 			<setting configurable="true" key="latitude" type="text" value="33.997866" />
 			<setting configurable="true" key="longitude" type="text" value="-117.814449" />

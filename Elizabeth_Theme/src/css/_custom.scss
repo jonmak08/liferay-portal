@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'components/buttons';
 @import 'components/map';
+@import 'layout/burger_header';
 @import 'layout/footer';
 @import 'layout/navigation';
 @import 'layout/navigation_scrolled';
@@ -12,7 +13,7 @@ body {
 			margin-top: 0; 
 
 			@include media-breakpoint-down(sm) {
-			margin-top: 48px;
+				margin-top: 48px;
 			}  
         }
   	}
@@ -21,16 +22,13 @@ body {
 		background-repeat: no-repeat;
 		background-size: cover;
 		background:
-			#3c3a3a
+			$theme-default
 			center center
 			fixed
-			url(../images/main_background.jpg)
+			url('../images/main_background.jpg')
 	}
 
 	.default-background {
-		background-color: #fff;
+		background-color: $theme-main-light;
 	}
 }
-
-
-

@@ -1,11 +1,47 @@
 .scrolled {
-    background-color: #fff;
+    background-color: $theme-main-light;
   
     #navigation-link {
-		color: #000;
+		color: $theme-main-dark;
 		
 		&:hover {
 			color: $theme-main-color;
 		}
-    }
+	}
+	
+	ul.child-menu {
+		background-color: $theme-main-light;
+	}
+
+	.burger div {
+		background-color: $theme-main-dark;
+	}
+
+	@include media-breakpoint-down(md) {
+		background-color: $theme-transparent;
+
+		ul.child-menu {
+			background-color:$theme-transparent;
+		}
+	}
+
+	@include media-breakpoint-down(sm) {
+		background-color: $theme-transparent;
+
+		ul.child-menu {
+			background-color: $theme-transparent;
+		}
+	}
+}
+
+.nav-toggler {
+	display: flex;
+}
+
+.background-toggler {
+	background-color: $theme-main-light;
+}
+
+.burger-toggler div {
+	background-color: $theme-main-dark;
 }

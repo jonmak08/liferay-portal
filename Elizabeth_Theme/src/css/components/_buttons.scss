@@ -1,9 +1,9 @@
 .button-beige {
-	background-color: #0000;
+	background-color: $theme-transparent;
 	border: 1px solid $theme-main-color;
 	border-radius: 0;
-	color: #fff;
-	columns: #fff;
+	color: $theme-main-light;
+	columns: $theme-main-light;
 	display: inline-block;
 	font-family: Lato, sans-serif;
 	font-weight: 700;

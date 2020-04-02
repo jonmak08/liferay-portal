@@ -2,5 +2,13 @@
 <#assign logo_css_class = logo_css_class + " navbar-brand" />
 <#assign show_footer = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-footer"))/>
 <#assign show_map = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-map"))/>
+<#assign section_one_title = getterUtil.getString(themeDisplay.getThemeSetting("section-one-title"))/>
+<#assign section_two_title = getterUtil.getString(themeDisplay.getThemeSetting("section-two-title"))/>
+<#assign section_three_title = getterUtil.getString(themeDisplay.getThemeSetting("section-three-title"))/>
+<#assign section_one_content = getterUtil.getString(themeDisplay.getThemeSetting("section-one-content"))/>
+<#assign section_two_address = getterUtil.getString(themeDisplay.getThemeSetting("section-two-address"))/>
+<#assign section_two_phone = getterUtil.getString(themeDisplay.getThemeSetting("section-two-phone"))/>
+<#assign section_two_mail = getterUtil.getString(themeDisplay.getThemeSetting("section-two-mail"))/>
+<#assign section_three_content = getterUtil.getString(themeDisplay.getThemeSetting("section-three-content"))/>
 <#assign latitude = getterUtil.getString(themeDisplay.getThemeSetting("latitude"))/>
 <#assign longitude = getterUtil.getString(themeDisplay.getThemeSetting("longitude"))/>
