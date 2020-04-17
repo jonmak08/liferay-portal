@@ -1,0 +1,21 @@
+@import "bourbon";
+@import "clay/atlas";
+@import "clay/atlas-variables";
+@import "compat/mixins";
+@import "mixins";
+@import "variables";
+@import "navigation/navigation";
+@import "hero/hero";
+@import "footer/footer";
+
+body {
+    &.has-control-menu {
+        header {
+			margin-top: 0; 
+
+			@include media-breakpoint-down(sm) {
+				margin-top: 48px;
+			}  
+        }
+	}
+}

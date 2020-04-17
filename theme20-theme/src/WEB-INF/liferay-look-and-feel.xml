@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.3.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_3_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.3.0+</version>
+	</compatibility>
+
+	<theme id="theme20" name="Theme 2.0">
+		<template-extension>ftl</template-extension>
+		<hook>
+			<language-properties>content/Language*.properties</language-properties>
+		</hook>
+		<settings>
+			<setting configurable="true" key="navigation-background-color" options="Dark,Light" type="select" value="None" />
+			<setting configurable="true" key="hero-image-url"
+			type="text" value="" />
+			<setting configurable="true" key="main-header" type="text" value="" />
+			<setting configurable="true" key="show-footer" type="checkbox" value="true" />
+			<setting configurable="true" key="facebook-url" type="text" value="" />
+			<setting configurable="true" key="twitter-url" type="text" value="" />
+			<setting configurable="true" key="youtube-url" type="text" value="" />
+			<setting configurable="true" key="linkedin-url" type="text" value="" />
+		</settings>
+	</theme>
+</look-and-feel>

@@ -1,0 +1,15 @@
+.hero-image {
+    align-items: center;
+    background: #a3a3a3;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
+    width:100%;
+
+    .main-header {
+        font-size: 70px;
+    }
+}

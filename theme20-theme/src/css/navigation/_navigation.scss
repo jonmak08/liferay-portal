@@ -1,0 +1,85 @@
+#navigation {
+    position: sticky;
+    z-index: 10;
+}
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.user-avatar-link .lexicon-icon {
+    color: $navigation-color-dark;
+}
+.navbar {
+    .nav-item {
+        margin-left: 6px;
+
+        .nav-link {
+            background: none;
+            border-color: transparent;
+            border-radius: 0;
+            border-style: solid;
+            border-width: 0;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            line-height: normal;
+            padding: 3px 12px;
+            position: relative;  
+            text-transform: uppercase;
+            transition: all 0.3 ease;
+
+            &.dark-font {
+                color: $navigation-color-dark;
+            }
+            &.light-font {
+                color: $navigation-color-light;
+            }
+        }
+        &:hover .child-menu {
+            display: block;
+            margin-top: -10px;
+        }
+        &.selected {
+        height: 73px;
+    
+            & .nav-link {
+                font-weight: bold;
+
+                &.dark-font {
+                    color: $navigation-color-dark-selected;
+                }
+                &.light-font {
+                    color: $navigation-color-light-selected;
+                }
+            }
+        }
+        .child-menu {
+            border: 0.5px $navigation-color-light solid;
+        }
+    }
+}
+@include media-breakpoint-down(sm){
+    #navigation {
+        display: none;
+    }
+}
+.sign {
+    &-in {
+        top: 57px;
+    }
+    &-out {
+        top: 0;
+    }
+}
+.break {
+    flex-basis: 100%;
+}
+.dark-background-header {
+    background: $navigation-color-dark;
+    border-bottom: 1px #181818 solid;
+}
+.light-background-header {
+    background: $navigation-color-light;
+    border-bottom: 1px #999 solid;
+}
