@@ -51,14 +51,17 @@ public class ProductNavigationControlMenuTemplateContextContributor
 		Map<String, Object> contextObjects,
 		HttpServletRequest httpServletRequest) {
 
-		if (!isShowControlMenu(httpServletRequest)) {
-			return;
-		}
-
 		String cssClass = GetterUtil.getString(
 			contextObjects.get("bodyCssClass"));
 
-		contextObjects.put("bodyCssClass", cssClass + " has-control-menu");
+		if (!isShowControlMenu(httpServletRequest)) {
+			contextObjects.put("bodyCssClass", cssClass);
+
+			return;
+		}
+		else {
+			contextObjects.put("bodyCssClass", cssClass + " has-control-menu");
+		}
 	}
 
 	protected boolean isShowControlMenu(HttpServletRequest httpServletRequest) {
