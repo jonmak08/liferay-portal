@@ -34,6 +34,8 @@ List<Portlet> portlets = (List<Portlet>)request.getAttribute(WebKeys.LAYOUT_PORT
 	<%@ include file="/html/common/themes/bottom_js_logging.jspf" %>
 </c:if>
 
+<%@ include file="/html/common/themes/bottom_ct_transaction_exception.jspf" %>
+
 <%@ include file="/html/common/themes/bottom_js.jspf" %>
 
 <%@ include file="/html/common/themes/password_expiring_soon.jspf" %>
