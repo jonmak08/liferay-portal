@@ -52,7 +52,7 @@ function PersonalMenu({
 					/>
 				) : (
 					<ClayButton
-						aria-label={Liferay.Language.get('user-personal-panel')}
+						aria-label={Liferay.Language.get('personal-menu')}
 						displayType="unstyled"
 						onFocus={preloadItems}
 						onMouseOver={preloadItems}
