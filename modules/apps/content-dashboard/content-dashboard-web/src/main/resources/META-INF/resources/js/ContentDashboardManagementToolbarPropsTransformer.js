@@ -13,15 +13,14 @@
  */
 
 import {
-	DefaultEventHandler,
 	ItemSelectorDialog,
 	addParams,
 	navigate,
 	openSelectionModal,
 } from 'frontend-js-web';
 
-class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventHandler {
-	selectAuthor(itemData) {
+export default function propsTransformer({portletNamespace, ...otherProps}) {
+	const selectAuthor = (itemData) => {
 		openSelectionModal({
 			buttonAddLabel: Liferay.Language.get('select'),
 			multiple: true,
@@ -31,7 +30,7 @@ class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventH
 
 					selectedItem.forEach((item) => {
 						redirectURL = addParams(
-							this.namespace + 'authorIds=' + item.id,
+							`${portletNamespace}authorIds=` + item.id,
 							redirectURL
 						);
 					});
@@ -39,16 +38,16 @@ class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventH
 					navigate(redirectURL);
 				}
 			},
-			selectEventName: this.ns('selectedAuthorItem'),
+			selectEventName: `${portletNamespace}selectedAuthorItem`,
 			title: itemData.dialogTitle,
 			url: itemData.selectAuthorURL,
 		});
-	}
+	};
 
-	selectAssetCategory(itemData) {
+	const selectAssetCategory = (itemData) => {
 		const itemSelectorDialog = new ItemSelectorDialog({
 			buttonAddLabel: Liferay.Language.get('select'),
-			eventName: this.ns('selectedAssetCategory'),
+			eventName: `${portletNamespace}selectedAssetCategory`,
 			title: itemData.dialogTitle,
 			url: itemData.selectAssetCategoryURL,
 		});
@@ -65,8 +64,7 @@ class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventH
 
 				assetCategories.forEach((assetCategory) => {
 					redirectURL = addParams(
-						this.namespace +
-							'assetCategoryId=' +
+						`${portletNamespace}assetCategoryId=` +
 							selectedItem[assetCategory].categoryId,
 						redirectURL
 					);
@@ -77,9 +75,9 @@ class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventH
 		});
 
 		itemSelectorDialog.open();
-	}
+	};
 
-	selectAssetTag(itemData) {
+	const selectAssetTag = (itemData) => {
 		openSelectionModal({
 			buttonAddLabel: Liferay.Language.get('select'),
 			multiple: true,
@@ -91,7 +89,7 @@ class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventH
 
 					assetTags.forEach((assetTag) => {
 						redirectURL = addParams(
-							this.namespace + 'assetTagId=' + assetTag,
+							`${portletNamespace}assetTagId=` + assetTag,
 							redirectURL
 						);
 					});
@@ -99,13 +97,13 @@ class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventH
 					navigate(redirectURL);
 				}
 			},
-			selectEventName: this.ns('selectedAssetTag'),
+			selectEventName: `${portletNamespace}selectedAssetTag`,
 			title: itemData.dialogTitle,
 			url: itemData.selectTagURL,
 		});
-	}
+	};
 
-	selectContentDashboardItemType(itemData) {
+	const selectContentDashboardItemType = (itemData) => {
 		openSelectionModal({
 			buttonAddLabel: Liferay.Language.get('select'),
 			multiple: true,
@@ -115,8 +113,7 @@ class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventH
 
 					selectedItem.forEach((item) => {
 						redirectURL = addParams(
-							this.namespace +
-								'contentDashboardItemTypePayload=' +
+							`${portletNamespace}contentDashboardItemTypePayload=` +
 								JSON.stringify(item),
 							redirectURL
 						);
@@ -125,28 +122,51 @@ class ContentDashboardManagementToolbarDefaultEventHandler extends DefaultEventH
 					navigate(redirectURL);
 				}
 			},
-			selectEventName: this.ns('selectedContentDashboardItemTypeItem'),
+			selectEventName: `${portletNamespace}selectedContentDashboardItemTypeItem`,
 			title: itemData.dialogTitle,
 			url: itemData.selectContentDashboardItemTypeURL,
 		});
-	}
+	};
 
-	selectScope(itemData) {
+	const selectScope = (itemData) => {
 		openSelectionModal({
 			id: this.ns('selectedScopeIdItem'),
 			onSelect: (selectedItem) => {
 				navigate(
 					addParams(
-						this.namespace + 'scopeId=' + selectedItem.groupid,
+						`${portletNamespace}scopeId=` + selectedItem.groupid,
 						itemData.redirectURL
 					)
 				);
 			},
-			selectEventName: this.ns('selectedScopeIdItem'),
+			selectEventName: `${portletNamespace}selectedScopeIdItem`,
 			title: itemData.dialogTitle,
 			url: itemData.selectScopeURL,
 		});
-	}
-}
+	};
 
-export default ContentDashboardManagementToolbarDefaultEventHandler;
+	return {
+		...otherProps,
+		onActionButtonClick: (event, {item}) => {
+			const data = item.data;
+
+			const action = data?.action;
+
+			if (action === 'selectAuthor') {
+				selectAuthor(data);
+			}
+			else if (action === 'selectAssetCategory') {
+				selectAssetCategory(data);
+			}
+			else if (action === 'selectAssetTag') {
+				selectAssetTag(data);
+			}
+			else if (action === 'selectContentDashboardItemType') {
+				selectContentDashboardItemType(data);
+			}
+			else if (action === 'selectScope') {
+				selectScope(data);
+			}
+		},
+	};
+}
