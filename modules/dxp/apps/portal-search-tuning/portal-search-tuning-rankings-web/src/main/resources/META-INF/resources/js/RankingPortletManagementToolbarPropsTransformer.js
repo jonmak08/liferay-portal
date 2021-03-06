@@ -21,9 +21,7 @@ export default function propsTransformer({
 	...otherProps
 }) {
 	const activateResultsRankingsEntries = () => {
-		const form = document.getElementById(
-			`${portletNamespace}resultsRankingEntriesFm`
-		);
+		const form = document.getElementById(`${portletNamespace}fm`);
 
 		const searchContainer = document.getElementById(
 			`${portletNamespace}resultsRankingEntries`
@@ -43,7 +41,7 @@ export default function propsTransformer({
 	};
 
 	const deactivateResultsRankingsEntries = () => {
-		const form = document.getElementById(`${portletNamespace}resultsRankingEntriesFm`);
+		const form = document.getElementById(`${portletNamespace}fm`);
 
 		const searchContainer = document.getElementById(
 			`${portletNamespace}resultsRankingEntries`
@@ -68,7 +66,7 @@ export default function propsTransformer({
 				Liferay.Language.get('are-you-sure-you-want-to-delete-this')
 			)
 		) {
-			const form = document.getElementById(`${portletNamespace}resultsRankingEntriesFm`);
+			const form = document.getElementById(`${portletNamespace}fm`);
 
 			const searchContainer = document.getElementById(
 				`${portletNamespace}resultsRankingEntries`

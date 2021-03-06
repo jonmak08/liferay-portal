@@ -78,7 +78,7 @@ RankingPortletDisplayContext rankingPortletDisplayContext = (RankingPortletDispl
 	showSearch="<%= false %>"
 />
 
-<aui:form cssClass="container-fluid container-fluid-max-xl" method="post" name="resultsRankingEntriesFm">
+<aui:form cssClass="container-fluid container-fluid-max-xl" method="post" name="fm">
 	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 
 	<liferay-ui:search-container
