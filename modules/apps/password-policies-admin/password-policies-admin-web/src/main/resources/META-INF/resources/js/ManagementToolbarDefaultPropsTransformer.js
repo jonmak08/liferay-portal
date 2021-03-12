@@ -23,35 +23,37 @@ const ACTIONS = {
 		) {
 			const form = document.getElementById(`${portletNamespace}fm`);
 
-			if (form) {
-				form.setAttribute('method', 'post');
-
-				const passwordPolicyIdsInput = form.querySelector(
-					`#${portletNamespace}passwordPolicyIds`
-				);
-
-				if (passwordPolicyIdsInput) {
-					passwordPolicyIdsInput.setAttribute(
-						'value',
-						Liferay.Util.listCheckedExcept(
-							form,
-							`${portletNamespace}allRowIds`
-						)
-					);
-				}
-
-				const lifecycleInput = form.querySelector('#p_p_lifecycle');
-
-				if (lifecycleInput) {
-					lifecycleInput.setAttribute('value', '1');
-				}
-
-				const actionURL = createActionURL(basePortletURL, {
-					'javax.portlet.action': 'deletePasswordPolicies',
-				});
-
-				submitForm(form, actionURL.toString());
+			if (!form) {
+				return;
 			}
+
+			form.setAttribute('method', 'post');
+
+			const passwordPolicyIdsInput = form.querySelector(
+				`#${portletNamespace}passwordPolicyIds`
+			);
+
+			if (passwordPolicyIdsInput) {
+				passwordPolicyIdsInput.setAttribute(
+					'value',
+					Liferay.Util.listCheckedExcept(
+						form,
+						`${portletNamespace}allRowIds`
+					)
+				);
+			}
+
+			const lifecycleInput = form.querySelector('#p_p_lifecycle');
+
+			if (lifecycleInput) {
+				lifecycleInput.setAttribute('value', '1');
+			}
+
+			const actionURL = createActionURL(basePortletURL, {
+				'javax.portlet.action': 'deletePasswordPolicies',
+			});
+
+			submitForm(form, actionURL.toString());
 		}
 	},
 };
@@ -70,7 +72,7 @@ export default function propsTransformer({
 			return {
 				...item,
 				onClick() {
-					const action = item.data.action;
+					const action = item?.data?.action;
 
 					ACTIONS[action](portletNamespace, basePortletURL);
 				},

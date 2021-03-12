@@ -76,7 +76,6 @@ SearchContainer<?> searchContainer = editPasswordPolicyAssignmentsManagementTool
 		).build()
 	%>'
 	clearResultsURL="<%= editPasswordPolicyAssignmentsManagementToolbarDisplayContext.getClearResultsURL() %>"
-	componentId="editPasswordPolicyAssignmentsManagementToolbar"
 	creationMenu="<%= editPasswordPolicyAssignmentsManagementToolbarDisplayContext.getCreationMenu() %>"
 	filterDropdownItems="<%= editPasswordPolicyAssignmentsManagementToolbarDisplayContext.getFilterDropdownItems() %>"
 	itemsTotal="<%= searchContainer.getTotal() %>"

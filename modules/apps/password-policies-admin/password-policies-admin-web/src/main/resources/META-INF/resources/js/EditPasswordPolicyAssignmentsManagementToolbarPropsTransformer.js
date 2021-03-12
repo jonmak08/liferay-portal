@@ -23,18 +23,22 @@ function addEntity(portletNamespace, inputName, entity) {
 		addUserIdsInput.setAttribute('value', entity);
 	}
 
-	submitForm(document[`${portletNamespace}fm`]);
+	const form = document.getElementById(`${portletNamespace}fm`);
+
+	if (form) {
+		submitForm(form);
+	}
 }
 
 function deleteEntities(portletNamespace, inputName) {
 	if (confirm(Liferay.Language.get('are-you-sure-you-want-to-delete-this'))) {
-		const form = document[`${portletNamespace}fm`];
+		const form = document.getElementById(`${portletNamespace}fm`);
 
 		const input = document.getElementById(
 			`${portletNamespace}${inputName}`
 		);
 
-		if (input) {
+		if (form && input) {
 			input.setAttribute(
 				'value',
 				Liferay.Util.listCheckedExcept(
@@ -66,7 +70,7 @@ export default function propsTransformer({
 	return {
 		...props,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action) {
 				ACTIONS[action](portletNamespace);
@@ -78,13 +82,13 @@ export default function propsTransformer({
 			openSelectionModal({
 				multiple: true,
 				onSelect(result) {
-					if (result && result.item) {
+					if (result?.item) {
 						const inputName = {
 							organizations: 'addOrganizationIds',
 							users: 'addUserIds',
-						}[result.memberType];
+						}[result?.memberType];
 
-						addEntity(portletNamespace, inputName, result.item);
+						addEntity(portletNamespace, inputName, result?.item);
 					}
 				},
 				selectEventName: `${portletNamespace}selectMember`,
