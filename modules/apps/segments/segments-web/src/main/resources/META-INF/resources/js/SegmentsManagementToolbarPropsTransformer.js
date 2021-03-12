@@ -16,9 +16,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteSegmentsEntries') {
+			if (item?.data?.action === 'deleteSegmentsEntries') {
 				if (
 					confirm(
 						Liferay.Language.get(
