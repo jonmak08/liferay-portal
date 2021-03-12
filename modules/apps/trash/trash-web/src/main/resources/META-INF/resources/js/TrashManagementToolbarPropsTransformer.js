@@ -25,28 +25,24 @@ export default function propsTransformer({
 		) {
 			const form = document.getElementById(`${portletNamespace}fm`);
 
-			if (!form) {
-				return;
+			if (form) {
+				submitForm(form);
 			}
-
-			submitForm(form);
 		}
 	};
 
 	const restoreSelectedEntries = () => {
 		const form = document.getElementById(`${portletNamespace}fm`);
 
-		if (!form) {
-			return;
+		if (form) {
+			submitForm(form, restoreEntriesURL);
 		}
-
-		submitForm(form, restoreEntriesURL);
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action === 'deleteSelectedEntries') {
 				deleteSelectedEntries();
