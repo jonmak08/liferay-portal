@@ -47,12 +47,12 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 						form.appendChild(item);
 					});
 
-					submitForm(form, itemData.editUsersRolesURL);
+					submitForm(form, itemData?.editUsersRolesURL);
 				}
 			},
 			selectEventName: `${portletNamespace}selectRole`,
 			title: Liferay.Language.get('assign-roles'),
-			url: itemData.selectRoleURL,
+			url: itemData?.selectRoleURL,
 		});
 	};
 
@@ -80,11 +80,11 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			selectEventName: `${portletNamespace}selectUsers`,
 			title: Liferay.Util.sub(
 				Liferay.Language.get('assign-users-to-this-x'),
-				itemData.groupTypeLabel
+				itemData?.groupTypeLabel
 			),
 			url: addParams(
 				`p_p_id=${getPortletId(portletNamespace)}`,
-				itemData.selectUsersURL
+				itemData?.selectUsersURL
 			),
 		});
 	};
@@ -92,20 +92,22 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'deleteSelectedUsers') {
 				deleteSelectedUsers();
 			}
 			else if (action === 'selectRole') {
-				selectRole(item.data);
+				selectRole(data);
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
 
-			if (action === 'selectUsers') {
-				selectUsers(item.data);
+			if (data?.action === 'selectUsers') {
+				selectUsers(data);
 			}
 		},
 	};

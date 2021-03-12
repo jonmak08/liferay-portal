@@ -53,26 +53,28 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			selectEventName: `${portletNamespace}selectOrganizations`,
 			title: Liferay.Util.sub(
 				Liferay.Language.get('assign-organizations-to-this-x'),
-				itemData.groupTypeLabel
+				itemData?.groupTypeLabel
 			),
-			url: itemData.selectOrganizationsURL,
+			url: itemData?.selectOrganizationsURL,
 		});
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action === 'deleteSelectedOrganizations') {
 				deleteSelectedOrganizations();
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'selectOrganizations') {
-				selectOrganizations(item.data);
+				selectOrganizations(data);
 			}
 		},
 	};

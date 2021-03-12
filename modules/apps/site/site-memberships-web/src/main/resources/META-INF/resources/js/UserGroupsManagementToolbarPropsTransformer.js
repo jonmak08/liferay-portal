@@ -47,12 +47,12 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 						form.appendChild(item);
 					});
 
-					submitForm(form, itemData.editUserGroupsRolesURL);
+					submitForm(form, itemData?.editUserGroupsRolesURL);
 				}
 			},
 			selectEventName: `${portletNamespace}selectRole`,
 			title: Liferay.Language.get('assign-roles'),
-			url: itemData.selectRoleURL,
+			url: itemData?.selectRoleURL,
 		});
 	};
 
@@ -80,29 +80,33 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			selectEventName: `${portletNamespace}selectUserGroups`,
 			title: Liferay.Util.sub(
 				Liferay.Language.get('assign-user-groups-to-this-x'),
-				itemData.groupTypeLabel
+				itemData?.groupTypeLabel
 			),
-			url: itemData.selectUserGroupsURL,
+			url: itemData?.selectUserGroupsURL,
 		});
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'deleteSelectedUserGroups') {
 				deleteSelectedUserGroups();
 			}
 			else if (action === 'selectRole') {
-				selectRole(item.data);
+				selectRole(data);
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'selectUserGroups') {
-				selectUserGroups(item.data);
+				selectUserGroups(data);
 			}
 		},
 	};
