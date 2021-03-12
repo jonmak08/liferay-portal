@@ -20,27 +20,27 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
-
-			if (action === 'deleteCustomFields') {
+			if (item?.data?.action === 'deleteCustomFields') {
 				const form = document.getElementById(`${portletNamespace}fm`);
 
-				if (form) {
-					var columnIds = form.querySelector(
-						`#${portletNamespace}columnIds`
+				if (!form) {
+					return;
+				}
+
+				var columnIds = form.querySelector(
+					`#${portletNamespace}columnIds`
+				);
+
+				if (columnIds) {
+					var checkedIds = Liferay.Util.listCheckedExcept(
+						form,
+						`${portletNamespace}allRowIds`
 					);
 
-					if (columnIds) {
-						var checkedIds = Liferay.Util.listCheckedExcept(
-							form,
-							`${portletNamespace}allRowIds`
-						);
-
-						columnIds.setAttribute('value', checkedIds);
-
-						submitForm(form, deleteExpandosURL);
-					}
+					columnIds.setAttribute('value', checkedIds);
 				}
+
+				submitForm(form, deleteExpandosURL);
 			}
 		},
 	};
