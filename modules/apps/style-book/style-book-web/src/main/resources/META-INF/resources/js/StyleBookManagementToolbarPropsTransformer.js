@@ -69,7 +69,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action === 'copySelectedStyleBookEntries') {
 				copySelectedStyleBookEntries();
@@ -82,7 +82,7 @@ export default function propsTransformer({
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			const data = item.data;
+			const data = item?.data;
 
 			openSimpleInputModal({
 				dialogTitle: data?.title,
