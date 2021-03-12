@@ -19,7 +19,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			if (item.data?.action === 'deleteRecords') {
+			if (item?.data?.action === 'deleteRecords') {
 				if (
 					confirm(
 						Liferay.Language.get(

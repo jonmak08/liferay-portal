@@ -17,7 +17,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			if (item.data?.action === 'deleteKaleoProcess') {
+			if (item?.data?.action === 'deleteKaleoProcess') {
 				if (
 					confirm(
 						Liferay.Language.get(
