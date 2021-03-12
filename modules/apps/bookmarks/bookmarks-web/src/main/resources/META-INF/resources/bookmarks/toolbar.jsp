@@ -36,7 +36,6 @@ BookmarksManagementToolbarDisplayContext bookmarksManagementToolbarDisplayContex
 		).build()
 	%>'
 	clearResultsURL="<%= bookmarksManagementToolbarDisplayContext.getClearResultsURL() %>"
-	componentId="bookmarksManagementToolbar"
 	creationMenu="<%= bookmarksManagementToolbarDisplayContext.getCreationMenu() %>"
 	disabled="<%= bookmarksManagementToolbarDisplayContext.isDisabled() %>"
 	filterDropdownItems="<%= bookmarksManagementToolbarDisplayContext.getFilterDropdownItems() %>"

@@ -17,40 +17,38 @@ export default function propsTransformer({
 	portletNamespace,
 	...props
 }) {
-	const deleteEntries = () => {
-		if (
-			trashEnabled ||
-			confirm(
-				Liferay.Language.get(
-					'are-you-sure-you-want-to-delete-the-selected-entries'
-				)
-			)
-		) {
-			const form = document.getElementById(`${portletNamespace}fm`);
-
-			if (!form) {
-				return;
-			}
-
-			form.setAttribute('method', 'post');
-
-			const inputElement = document.getElementById(
-				`${portletNamespace}${inputId}`
-			);
-
-			if (inputElement) {
-				inputElement.setAttribute('value', inputValue);
-
-				submitForm(form, deleteEntriesURL);
-			}
-		}
-	};
-
 	return {
 		...props,
 		onActionButtonClick(event, {item}) {
-			if (item.data?.action === 'deleteEntries') {
-				deleteEntries();
+			if (item?.data?.action === 'deleteEntries') {
+				if (
+					trashEnabled ||
+					confirm(
+						Liferay.Language.get(
+							'are-you-sure-you-want-to-delete-the-selected-entries'
+						)
+					)
+				) {
+					const form = document.getElementById(
+						`${portletNamespace}fm`
+					);
+
+					if (!form) {
+						return;
+					}
+
+					form.setAttribute('method', 'post');
+
+					const inputElement = document.getElementById(
+						`${portletNamespace}${inputId}`
+					);
+
+					if (inputElement) {
+						inputElement.setAttribute('value', inputValue);
+
+						submitForm(form, deleteEntriesURL);
+					}
+				}
 			}
 		},
 	};
