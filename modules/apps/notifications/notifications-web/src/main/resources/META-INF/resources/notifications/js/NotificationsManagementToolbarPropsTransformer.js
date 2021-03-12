@@ -62,7 +62,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action === 'deleteNotifications') {
 				deleteNotifications();
