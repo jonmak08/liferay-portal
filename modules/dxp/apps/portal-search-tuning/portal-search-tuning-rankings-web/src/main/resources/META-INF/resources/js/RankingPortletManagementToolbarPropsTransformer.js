@@ -27,7 +27,7 @@ export default function propsTransformer({
 			`${portletNamespace}resultsRankingEntries`
 		);
 
-		if (searchContainer) {
+		if (form && searchContainer) {
 			postForm(form, {
 				data: {
 					actionFormInstanceIds: Liferay.Util.listCheckedExcept(
@@ -47,7 +47,7 @@ export default function propsTransformer({
 			`${portletNamespace}resultsRankingEntries`
 		);
 
-		if (searchContainer) {
+		if (form && searchContainer) {
 			postForm(form, {
 				data: {
 					actionFormInstanceIds: Liferay.Util.listCheckedExcept(
@@ -72,7 +72,7 @@ export default function propsTransformer({
 				`${portletNamespace}resultsRankingEntries`
 			);
 
-			if (searchContainer) {
+			if (form && searchContainer) {
 				postForm(form, {
 					data: {
 						actionFormInstanceIds: Liferay.Util.listCheckedExcept(
@@ -89,7 +89,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action === 'activateResultsRankingsEntries') {
 				activateResultsRankingsEntries();
