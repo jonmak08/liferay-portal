@@ -33,14 +33,14 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		const form = document.getElementById(`${portletNamespace}fm`);
 
 		if (form) {
-			submitForm(form, itemData.exportMasterLayoutURL);
+			submitForm(form, itemData?.exportMasterLayoutURL);
 		}
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const data = item.data;
+			const data = item?.data;
 
 			const action = data?.action;
 
@@ -54,7 +54,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		onCreateButtonClick(event, {item}) {
 			openSimpleInputModal({
 				dialogTitle: Liferay.Language.get('add-master-page'),
-				formSubmitURL: item.data?.addMasterLayoutURL,
+				formSubmitURL: item?.data?.addMasterLayoutURL,
 				mainFieldLabel: Liferay.Language.get('name'),
 				mainFieldName: 'name',
 				mainFieldPlaceholder: Liferay.Language.get('name'),

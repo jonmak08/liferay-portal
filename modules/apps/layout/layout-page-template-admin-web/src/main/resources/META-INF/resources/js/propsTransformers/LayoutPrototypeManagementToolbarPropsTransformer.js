@@ -16,11 +16,9 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const data = item.data;
+			const data = item?.data;
 
-			const action = data?.action;
-
-			if (action === 'deleteSelectedLayoutPrototypes') {
+			if (data?.action === 'deleteSelectedLayoutPrototypes') {
 				if (
 					confirm(
 						Liferay.Language.get(

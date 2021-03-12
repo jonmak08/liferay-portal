@@ -31,14 +31,14 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		const form = document.getElementById(`${portletNamespace}fm`);
 
 		if (form) {
-			submitForm(form, itemData.exportDisplayPageURL);
+			submitForm(form, itemData?.exportDisplayPageURL);
 		}
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const data = item.data;
+			const data = item?.data;
 
 			const action = data?.action;
 

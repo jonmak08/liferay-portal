@@ -33,14 +33,14 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		const form = document.getElementById(`${portletNamespace}fm`);
 
 		if (form) {
-			submitForm(form, itemData.exportLayoutPageTemplateEntryURL);
+			submitForm(form, itemData?.exportLayoutPageTemplateEntryURL);
 		}
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const data = item.data;
+			const data = item?.data;
 
 			const action = data?.action;
 
@@ -52,10 +52,12 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			}
 		},
 		onCreationMenuItemClick(event, {item}) {
-			if (item.data?.action === 'addLayoutPageTemplateEntry') {
+			const data = item?.data;
+
+			if (data?.action === 'addLayoutPageTemplateEntry') {
 				openSimpleInputModal({
 					dialogTitle: Liferay.Language.get('add-page-template'),
-					formSubmitURL: item.data?.addPageTemplateURL,
+					formSubmitURL: data?.addPageTemplateURL,
 					mainFieldLabel: Liferay.Language.get('name'),
 					mainFieldName: 'name',
 					mainFieldPlaceholder: Liferay.Language.get('name'),

@@ -32,7 +32,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			const form = document.getElementById(`${portletNamespace}fm`);
 
 			if (form) {
-				submitForm(form, itemData.deleteAssetDisplayPageEntryURL);
+				submitForm(form, itemData?.deleteAssetDisplayPageEntryURL);
 			}
 		}
 	};
@@ -47,7 +47,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			const form = document.getElementById(`${portletNamespace}fm`);
 
 			if (form) {
-				submitForm(form, itemData.updateAssetDisplayPageEntryURL);
+				submitForm(form, itemData?.updateAssetDisplayPageEntryURL);
 			}
 		}
 	};
@@ -55,7 +55,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const data = item.data;
+			const data = item?.data;
 
 			const action = data?.action;
 
