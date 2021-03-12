@@ -16,9 +16,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteArchivedSettings') {
+			if (item?.data?.action === 'deleteArchivedSettings') {
 				if (
 					confirm(
 						Liferay.Language.get(
