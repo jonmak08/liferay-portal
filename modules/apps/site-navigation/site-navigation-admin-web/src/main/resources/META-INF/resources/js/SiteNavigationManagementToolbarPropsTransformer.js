@@ -18,9 +18,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteSelectedSiteNavigationMenus') {
+			if (item?.data?.action === 'deleteSelectedSiteNavigationMenus') {
 				if (
 					confirm(
 						Liferay.Language.get(
@@ -39,12 +37,14 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'addSiteNavigationMenu') {
 				openSimpleInputModal({
 					dialogTitle: Liferay.Language.get('add-menu'),
-					formSubmitURL: item.data.addSiteNavigationMenuURL,
+					formSubmitURL: data?.addSiteNavigationMenuURL,
 					mainFieldLabel: Liferay.Language.get('name'),
 					mainFieldName: 'name',
 					mainFieldPlaceholder: Liferay.Language.get('name'),
