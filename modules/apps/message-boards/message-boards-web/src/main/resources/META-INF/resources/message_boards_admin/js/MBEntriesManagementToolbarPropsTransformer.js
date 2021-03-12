@@ -40,7 +40,7 @@ export default function propsTransformer({
 					'are-you-sure-you-want-to-delete-the-selected-entries'
 			  );
 
-		if (trashEnabled || confirm(Liferay.Language.get(message))) {
+		if (trashEnabled || confirm(message)) {
 			postForm(form, {
 				data: {
 					cmd: deleteEntriesCmd,
@@ -79,7 +79,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action === 'deleteEntries') {
 				deleteEntries();

@@ -22,7 +22,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			if (item.data?.action === 'unbanUser') {
+			if (item?.data?.action === 'unbanUser') {
 				const form = document.getElementById(`${portletNamespace}fm`);
 
 				if (form) {

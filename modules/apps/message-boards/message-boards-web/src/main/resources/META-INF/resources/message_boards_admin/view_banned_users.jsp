@@ -35,7 +35,6 @@ int totalBannedUsers = MBBanLocalServiceUtil.getBansCount(scopeGroupId);
 <clay:management-toolbar
 	actionDropdownItems="<%= mbBannedUsersManagementToolbarDisplayContext.getActionDropdownItems() %>"
 	additionalProps="<%= mbBannedUsersManagementToolbarDisplayContext.getAdditionalProps() %>"
-	componentId="mbBannedUsersManagementToolbar"
 	disabled="<%= totalBannedUsers == 0 %>"
 	itemsTotal="<%= totalBannedUsers %>"
 	propsTransformer="message_boards_admin/js/BanUsersManagementToolbarPropsTransformer"
