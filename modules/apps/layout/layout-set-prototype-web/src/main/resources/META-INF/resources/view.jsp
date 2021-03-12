@@ -23,7 +23,6 @@
 <clay:management-toolbar
 	actionDropdownItems="<%= layoutSetPrototypeDisplayContext.getActionDropdownItems() %>"
 	clearResultsURL="<%= layoutSetPrototypeDisplayContext.getClearResultsURL() %>"
-	componentId="layoutSetPrototypeWebManagementToolbar"
 	creationMenu="<%= layoutSetPrototypeDisplayContext.isShowAddButton() ? layoutSetPrototypeDisplayContext.getCreationMenu() : null %>"
 	filterDropdownItems="<%= layoutSetPrototypeDisplayContext.getFilterDropdownItems() %>"
 	infoPanelId="infoPanelId"
