@@ -22,9 +22,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
-
-			if (action === 'deleteOAuth2Applications') {
+			if (item?.data?.action === 'deleteOAuth2Applications') {
 				if (
 					confirm(
 						Liferay.Language.get(

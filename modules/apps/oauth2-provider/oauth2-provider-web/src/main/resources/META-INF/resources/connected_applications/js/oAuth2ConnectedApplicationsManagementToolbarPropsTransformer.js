@@ -22,9 +22,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
-
-			if (action === 'removeAccess') {
+			if (item?.data?.action === 'removeAccess') {
 				if (
 					confirm(
 						Liferay.Language.get(
