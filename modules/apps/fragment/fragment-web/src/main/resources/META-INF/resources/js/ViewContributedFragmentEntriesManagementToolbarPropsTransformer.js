@@ -78,9 +78,10 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'copyToSelectedContributedFragmentEntries') {
+			if (
+				item?.data?.action ===
+				'copyToSelectedContributedFragmentEntries'
+			) {
 				copyToSelectedContributedFragmentEntries();
 			}
 		},

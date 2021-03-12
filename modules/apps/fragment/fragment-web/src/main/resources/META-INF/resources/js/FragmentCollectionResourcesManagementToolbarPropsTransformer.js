@@ -18,9 +18,9 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
 
-			if (action === 'deleteSelectedFragmentCollectionResources') {
+			if (data?.action === 'deleteSelectedFragmentCollectionResources') {
 				if (
 					confirm(
 						Liferay.Language.get(
@@ -35,16 +35,16 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 					if (form) {
 						submitForm(
 							form,
-							item.data.deleteFragmentCollectionResourcesURL
+							data?.deleteFragmentCollectionResourcesURL
 						);
 					}
 				}
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
 
-			if (action === 'addFragmentCollectionResource') {
+			if (data?.action === 'addFragmentCollectionResource') {
 				openSelectionModal({
 					onSelect(selectedItem) {
 						if (selectedItem) {
@@ -74,7 +74,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 					title: Liferay.Language.get(
 						'upload-fragment-collection-resource'
 					),
-					url: item.data.itemSelectorURL,
+					url: data.itemSelectorURL,
 				});
 			}
 		},

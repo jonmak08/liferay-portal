@@ -28,8 +28,8 @@ export default function propsTransformer({
 }) {
 	const addFragmentEntry = (itemData) => {
 		openSimpleInputModal({
-			dialogTitle: itemData.title,
-			formSubmitURL: itemData.addFragmentEntryURL,
+			dialogTitle: itemData?.title,
+			formSubmitURL: itemData?.addFragmentEntryURL,
 			mainFieldLabel: Liferay.Language.get('name'),
 			mainFieldName: 'name',
 			mainFieldPlaceholder: Liferay.Language.get('name'),
@@ -203,10 +203,12 @@ export default function propsTransformer({
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'addFragmentEntry') {
-				addFragmentEntry(item.data);
+				addFragmentEntry(data);
 			}
 		},
 	};

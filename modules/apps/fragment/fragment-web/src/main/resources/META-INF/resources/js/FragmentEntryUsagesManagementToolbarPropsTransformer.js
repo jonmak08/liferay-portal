@@ -16,9 +16,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'propagate') {
+			if (item?.data?.action === 'propagate') {
 				const form = document.getElementById(`${portletNamespace}fm`);
 
 				if (form) {
