@@ -28,27 +28,31 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	};
 
 	const mergeTags = (itemData) => {
-		const mergeURL = itemData.mergeTagsURL;
+		const form = document.getElementById(`${portletNamespace}fm`);
 
-		location.href = mergeURL.replace(
-			escape('[$MERGE_TAGS_IDS$]'),
-			Liferay.Util.listCheckedExcept(
-				document.getElementById(`${portletNamespace}fm`),
-				`${portletNamespace}allRowIds`
-			)
-		);
+		if (form) {
+			location.href = itemData?.mergeTagsURL.replace(
+				escape('[$MERGE_TAGS_IDS$]'),
+				Liferay.Util.listCheckedExcept(
+					form,
+					`${portletNamespace}allRowIds`
+				)
+			);
+		}
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'deleteTags') {
 				deleteTags();
 			}
 			else if (action === 'mergeTags') {
-				mergeTags(item.data);
+				mergeTags(data);
 			}
 		},
 	};
