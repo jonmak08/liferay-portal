@@ -36,7 +36,6 @@ SynonymsDisplayContext synonymsDisplayContext = (SynonymsDisplayContext)request.
 
 <clay:management-toolbar
 	actionDropdownItems="<%= synonymsDisplayContext.getActionDropdownMultipleItems() %>"
-	componentId="synonymSetsEntriesManagementToolbar"
 	creationMenu="<%= synonymsDisplayContext.getCreationMenu() %>"
 	disabled="<%= synonymsDisplayContext.isDisabledManagementBar() %>"
 	itemsTotal="<%= synonymsDisplayContext.getItemsTotal() %>"

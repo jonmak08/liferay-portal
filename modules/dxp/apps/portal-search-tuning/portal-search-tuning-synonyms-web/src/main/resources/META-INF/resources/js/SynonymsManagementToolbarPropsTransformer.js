@@ -13,9 +13,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const action = item.data?.action;
-
-			if (action === 'deleteMultipleSynonyms') {
+			if (item?.data?.action === 'deleteMultipleSynonyms') {
 				if (
 					confirm(
 						Liferay.Language.get(
