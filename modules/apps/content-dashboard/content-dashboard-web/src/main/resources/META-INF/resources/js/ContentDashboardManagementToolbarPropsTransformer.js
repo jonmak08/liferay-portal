@@ -26,7 +26,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			multiple: true,
 			onSelect(selectedItem) {
 				if (selectedItem) {
-					let redirectURL = itemData.redirectURL;
+					let redirectURL = itemData?.redirectURL;
 
 					selectedItem.forEach((item) => {
 						redirectURL = addParams(
@@ -39,8 +39,8 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 				}
 			},
 			selectEventName: `${portletNamespace}selectedAuthorItem`,
-			title: itemData.dialogTitle,
-			url: itemData.selectAuthorURL,
+			title: itemData?.dialogTitle,
+			url: itemData?.selectAuthorURL,
 		});
 	};
 
@@ -48,8 +48,8 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		const itemSelectorDialog = new ItemSelectorDialog({
 			buttonAddLabel: Liferay.Language.get('select'),
 			eventName: `${portletNamespace}selectedAssetCategory`,
-			title: itemData.dialogTitle,
-			url: itemData.selectAssetCategoryURL,
+			title: itemData?.dialogTitle,
+			url: itemData?.selectAssetCategoryURL,
 		});
 
 		itemSelectorDialog.on('selectedItemChange', (event) => {
@@ -60,7 +60,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 					(key) => !selectedItem[key].unchecked
 				);
 
-				let redirectURL = itemData.redirectURL;
+				let redirectURL = itemData?.redirectURL;
 
 				assetCategories.forEach((assetCategory) => {
 					redirectURL = addParams(
@@ -84,7 +84,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 				if (selectedItem) {
 					const assetTags = selectedItem['items'].split(',');
 
-					let redirectURL = itemData.redirectURL;
+					let redirectURL = itemData?.redirectURL;
 
 					assetTags.forEach((assetTag) => {
 						redirectURL = addParams(
@@ -97,8 +97,8 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 				}
 			},
 			selectEventName: `${portletNamespace}selectedAssetTag`,
-			title: itemData.dialogTitle,
-			url: itemData.selectTagURL,
+			title: itemData?.dialogTitle,
+			url: itemData?.selectTagURL,
 		});
 	};
 
@@ -108,7 +108,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			multiple: true,
 			onSelect(selectedItem) {
 				if (selectedItem) {
-					let redirectURL = itemData.redirectURL;
+					let redirectURL = itemData?.redirectURL;
 
 					selectedItem.forEach((item) => {
 						redirectURL = addParams(
@@ -123,8 +123,8 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 				}
 			},
 			selectEventName: `${portletNamespace}selectedContentDashboardItemTypeItem`,
-			title: itemData.dialogTitle,
-			url: itemData.selectContentDashboardItemTypeURL,
+			title: itemData?.dialogTitle,
+			url: itemData?.selectContentDashboardItemTypeURL,
 		});
 	};
 
@@ -135,35 +135,37 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 				navigate(
 					addParams(
 						`${portletNamespace}scopeId=${selectedItem.groupid}`,
-						itemData.redirectURL
+						itemData?.redirectURL
 					)
 				);
 			},
 			selectEventName: `${portletNamespace}selectedScopeIdItem`,
-			title: itemData.dialogTitle,
-			url: itemData.selectScopeURL,
+			title: itemData?.dialogTitle,
+			url: itemData?.selectScopeURL,
 		});
 	};
 
 	return {
 		...otherProps,
 		onFilterDropdownItemClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'selectAssetCategory') {
-				selectAssetCategory(item.data);
+				selectAssetCategory(data);
 			}
 			else if (action === 'selectAssetTag') {
-				selectAssetTag(item.data);
+				selectAssetTag(data);
 			}
 			else if (action === 'selectAuthor') {
-				selectAuthor(item.data);
+				selectAuthor(data);
 			}
 			else if (action === 'selectContentDashboardItemType') {
-				selectContentDashboardItemType(item.data);
+				selectContentDashboardItemType(data);
 			}
 			else if (action === 'selectScope') {
-				selectScope(item.data);
+				selectScope(data);
 			}
 		},
 	};
