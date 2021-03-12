@@ -66,7 +66,6 @@ request.setAttribute("view_suggestions.jsp-searchContainer", kbCommentsSearchCon
 <clay:management-toolbar
 	actionDropdownItems="<%= kbSuggestionListManagementToolbarDisplayContext.getActionDropdownItems() %>"
 	clearResultsURL="<%= kbSuggestionListManagementToolbarDisplayContext.getClearResultsURL() %>"
-	componentId="kbSuggestionListManagementToolbar"
 	disabled="<%= kbSuggestionListManagementToolbarDisplayContext.isDisabled() %>"
 	filterDropdownItems="<%= kbSuggestionListManagementToolbarDisplayContext.getFilterDropdownItems() %>"
 	filterLabelItems="<%= kbSuggestionListManagementToolbarDisplayContext.getFilterLabelItems() %>"

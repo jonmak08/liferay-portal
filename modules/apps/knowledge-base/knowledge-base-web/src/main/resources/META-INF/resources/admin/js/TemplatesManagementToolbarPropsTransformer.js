@@ -20,9 +20,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteKBTemplates') {
+			if (item?.data?.action === 'deleteKBTemplates') {
 				if (
 					confirm(
 						Liferay.Language.get(
@@ -40,15 +38,19 @@ export default function propsTransformer({
 
 					form.setAttribute('method', 'post');
 
-					form.querySelector(
+					const kbTemplateIds = form.querySelector(
 						`#${portletNamespace}kbTemplateIds`
-					).setAttribute(
-						'value',
-						Liferay.Util.listCheckedExcept(
-							form,
-							`${portletNamespace}allRowIds`
-						)
 					);
+
+					if (kbTemplateIds) {
+						kbTemplateIds.setAttribute(
+							'value',
+							Liferay.Util.listCheckedExcept(
+								form,
+								`${portletNamespace}allRowIds`
+							)
+						);
+					}
 
 					submitForm(form, deleteKBTemplatesURL);
 				}

@@ -16,7 +16,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action === 'deleteEntries') {
 				if (

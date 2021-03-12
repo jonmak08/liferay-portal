@@ -16,9 +16,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteKBComments') {
+			if (item?.data?.action === 'deleteKBComments') {
 				if (
 					confirm(
 						Liferay.Language.get(
@@ -30,7 +28,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 						`${portletNamespace}fm`
 					);
 
-					if (!form) {
+					if (form) {
 						submitForm(form);
 					}
 				}

@@ -54,7 +54,6 @@ if (parentResourcePrimKey != KBFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 <clay:management-toolbar
 	actionDropdownItems="<%= kbAdminManagementToolbarDisplayContext.getActionDropdownItems() %>"
 	clearResultsURL="<%= String.valueOf(kbAdminManagementToolbarDisplayContext.getSearchURL()) %>"
-	componentId="kbAdminManagementToolbar"
 	creationMenu="<%= kbAdminManagementToolbarDisplayContext.getCreationMenu() %>"
 	disabled="<%= kbAdminManagementToolbarDisplayContext.isDisabled() %>"
 	filterDropdownItems="<%= kbAdminManagementToolbarDisplayContext.getFilterDropdownItems() %>"
