@@ -25,33 +25,31 @@ export default function propsTransformer({
 		if (confirmDepotEntryDeletion()) {
 			const form = document.getElementById(`${portletNamespace}fm`);
 
-			if (!form) {
-				return;
+			if (form) {
+				postForm(form, {
+					data: {
+						deleteEntryIds: Liferay.Util.listCheckedExcept(
+							form,
+							`${portletNamespace}allRowIds`
+						),
+					},
+					url: deleteDepotEntriesURL,
+				});
 			}
-
-			postForm(form, {
-				data: {
-					deleteEntryIds: Liferay.Util.listCheckedExcept(
-						form,
-						`${portletNamespace}allRowIds`
-					),
-				},
-				url: deleteDepotEntriesURL,
-			});
 		}
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			if (item.data?.action === 'deleteSelectedDepotEntries') {
+			if (item?.data?.action === 'deleteSelectedDepotEntries') {
 				deleteSelectedDepotEntries();
 			}
 		},
 		onCreateButtonClick: (event, {item}) => {
 			openSimpleInputModal({
 				dialogTitle: Liferay.Language.get('add-asset-library'),
-				formSubmitURL: item.data?.addDepotEntryURL,
+				formSubmitURL: item?.data?.addDepotEntryURL,
 				mainFieldLabel: Liferay.Language.get('name'),
 				mainFieldName: 'name',
 				namespace: `${portletNamespace}`,
