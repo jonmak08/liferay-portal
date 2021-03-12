@@ -82,7 +82,6 @@ if (organization != null) {
 				).build()
 			%>'
 			clearResultsURL="<%= viewTreeManagementToolbarDisplayContext.getClearResultsURL() %>"
-			componentId="viewTreeManagementToolbar"
 			creationMenu="<%= viewTreeManagementToolbarDisplayContext.getCreationMenu() %>"
 			filterDropdownItems="<%= viewTreeManagementToolbarDisplayContext.getFilterDropdownItems() %>"
 			filterLabelItems="<%= viewTreeManagementToolbarDisplayContext.getFilterLabelItems() %>"

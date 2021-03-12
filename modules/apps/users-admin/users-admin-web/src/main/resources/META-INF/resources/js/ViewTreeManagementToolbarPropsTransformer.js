@@ -22,10 +22,14 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onCreationMenuItemClick(event, {item}) {
-			if (item.data?.action === 'selectUsers') {
+			const data = item?.data;
+
+			const action = data?.action;
+
+			if (action === 'selectUsers') {
 				ACTIONS.selectUsers({
 					basePortletURL,
-					organizationId: item.data?.organizationId,
+					organizationId: data?.organizationId,
 					portletNamespace,
 				});
 			}
