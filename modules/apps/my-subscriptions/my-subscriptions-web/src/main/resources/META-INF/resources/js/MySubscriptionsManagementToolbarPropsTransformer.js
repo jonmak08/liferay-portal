@@ -16,28 +16,30 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			if (item.data?.action === 'unsubscribe') {
+			if (item?.data?.action === 'unsubscribe') {
 				const form = document.getElementById(`${portletNamespace}fm`);
 
-				if (form) {
-					form.setAttribute('method', 'post');
-
-					const subscriptionIds = form.querySelector(
-						`#${portletNamespace}subscriptionIds`
-					);
-
-					if (subscriptionIds) {
-						subscriptionIds.setAttribute(
-							'value',
-							Liferay.Util.listCheckedExcept(
-								form,
-								`${portletNamespace}allRowIds`
-							)
-						);
-
-						submitForm(form);
-					}
+				if (!form) {
+					return;
 				}
+
+				form.setAttribute('method', 'post');
+
+				const subscriptionIds = form.querySelector(
+					`#${portletNamespace}subscriptionIds`
+				);
+
+				if (subscriptionIds) {
+					subscriptionIds.setAttribute(
+						'value',
+						Liferay.Util.listCheckedExcept(
+							form,
+							`${portletNamespace}allRowIds`
+						)
+					);
+				}
+
+				submitForm(form);
 			}
 		},
 	};
