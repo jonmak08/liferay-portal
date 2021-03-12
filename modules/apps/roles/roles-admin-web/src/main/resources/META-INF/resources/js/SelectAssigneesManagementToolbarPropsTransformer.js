@@ -16,13 +16,12 @@ export default function propsTransformer({...otherProps}) {
 	return {
 		...otherProps,
 		onCreateButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
 
-			if (action === 'addSegmentEntry') {
-				window.sessionStorage.setItem(item.data.sessionKey, 'open');
+			if (data?.action === 'addSegmentEntry') {
+				window.sessionStorage.setItem(data?.sessionKey, 'open');
 
-				Liferay.Util.getTop().location.href =
-					item.data.addSegmentEntryURL;
+				Liferay.Util.getTop().location.href = data?.addSegmentEntryURL;
 			}
 		},
 	};

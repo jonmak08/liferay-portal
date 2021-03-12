@@ -51,7 +51,6 @@ PortletURL portletURL = viewRolesManagementToolbarDisplayContext.getPortletURL()
 		).build()
 	%>'
 	clearResultsURL="<%= viewRolesManagementToolbarDisplayContext.getClearResultsURL() %>"
-	componentId="viewRolesManagementToolbar"
 	creationMenu="<%= viewRolesManagementToolbarDisplayContext.getCreationMenu() %>"
 	filterDropdownItems="<%= viewRolesManagementToolbarDisplayContext.getFilterDropdownItems() %>"
 	itemsTotal="<%= searchContainer.getTotal() %>"
