@@ -18,9 +18,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteSelectedAssetListEntries') {
+			if (item?.data?.action === 'deleteSelectedAssetListEntries') {
 				if (
 					confirm(
 						Liferay.Language.get(
@@ -39,12 +37,12 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			}
 		},
 		onCreationMenuItemClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
 
-			if (action === 'addAssetListEntry') {
+			if (data?.action === 'addAssetListEntry') {
 				openSimpleInputModal({
-					dialogTitle: item.data.title,
-					formSubmitURL: item.data.addAssetListEntryURL,
+					dialogTitle: data?.title,
+					formSubmitURL: data?.addAssetListEntryURL,
 					mainFieldLabel: Liferay.Language.get('title'),
 					mainFieldName: 'title',
 					mainFieldPlaceholder: Liferay.Language.get('title'),
