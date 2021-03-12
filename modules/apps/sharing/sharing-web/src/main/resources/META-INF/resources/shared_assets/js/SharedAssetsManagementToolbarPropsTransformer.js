@@ -22,9 +22,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onFilterDropdownItemClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'openAssetTypesSelector') {
+			if (item?.data?.action === 'openAssetTypesSelector') {
 				openSelectionModal({
 					onSelect: (selectedItem) => {
 						if (selectedItem) {
