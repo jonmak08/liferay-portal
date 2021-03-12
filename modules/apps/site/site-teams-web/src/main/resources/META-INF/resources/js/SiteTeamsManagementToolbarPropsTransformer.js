@@ -16,9 +16,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteSelectedTeams') {
+			if (item?.data?.action === 'deleteSelectedTeams') {
 				if (
 					confirm(
 						Liferay.Language.get(

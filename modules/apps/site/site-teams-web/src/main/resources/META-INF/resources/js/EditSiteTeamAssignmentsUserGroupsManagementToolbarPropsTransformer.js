@@ -18,9 +18,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteUserGroups') {
+			if (item?.data?.action === 'deleteUserGroups') {
 				if (
 					confirm(
 						Liferay.Language.get(
@@ -39,7 +37,9 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'selectUserGroup') {
 				openSelectionModal({
@@ -62,8 +62,8 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 						}
 					},
 					selectEventName: `${portletNamespace}selectUserGroup`,
-					title: item.data.title,
-					url: item.data.selectUserGroupURL,
+					title: data?.title,
+					url: data?.selectUserGroupURL,
 				});
 			}
 		},
