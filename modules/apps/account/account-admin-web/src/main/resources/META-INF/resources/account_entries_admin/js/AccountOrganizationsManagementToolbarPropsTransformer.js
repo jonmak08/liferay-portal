@@ -18,7 +18,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const data = item.data;
+			const data = item?.data;
 
 			const action = data?.action;
 
@@ -42,18 +42,14 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 									`${portletNamespace}allRowIds`
 								),
 							},
-							url: data.removeOrganizationsURL,
+							url: data?.removeOrganizationsURL,
 						});
 					}
 				}
 			}
 		},
 		onCreateButtonClick: (event, {item}) => {
-			const data = item.data;
-
-			if (!data) {
-				return;
-			}
+			const data = item?.data;
 
 			openSelectionModal({
 				buttonAddLabel: Liferay.Language.get('assign'),
@@ -69,7 +65,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 								data: {
 									accountOrganizationIds: selectedItem.value,
 								},
-								url: data.assignAccountOrganizationsURL,
+								url: data?.assignAccountOrganizationsURL,
 							});
 						}
 					}
@@ -77,9 +73,9 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 				selectEventName: `${portletNamespace}assignAccountOrganizations`,
 				title: Liferay.Util.sub(
 					Liferay.Language.get('assign-organizations-to-x'),
-					data.accountEntryName
+					data?.accountEntryName
 				),
-				url: data.selectAccountOrganizationsURL,
+				url: data?.selectAccountOrganizationsURL,
 			});
 		},
 	};

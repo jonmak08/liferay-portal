@@ -18,7 +18,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const data = item.data;
+			const data = item?.data;
 
 			const action = data?.action;
 
@@ -42,7 +42,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 									`${portletNamespace}allRowIds`
 								),
 							},
-							url: data.deleteAccountEntryAddressesURL,
+							url: data?.deleteAccountEntryAddressesURL,
 						});
 					}
 				}

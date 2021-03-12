@@ -34,7 +34,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	const activateAccountEntries = (itemData) => {
 		updateAccountEntries(
 			portletNamespace,
-			itemData.activateAccountEntriesURL
+			itemData?.activateAccountEntriesURL
 		);
 	};
 
@@ -46,7 +46,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		) {
 			updateAccountEntries(
 				portletNamespace,
-				itemData.deactivateAccountEntriesURL
+				itemData?.deactivateAccountEntriesURL
 			);
 		}
 	};
@@ -59,7 +59,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		) {
 			updateAccountEntries(
 				portletNamespace,
-				itemData.deleteAccountEntriesURL
+				itemData?.deleteAccountEntriesURL
 			);
 		}
 	};
@@ -67,7 +67,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const data = item.data;
+			const data = item?.data;
 
 			const action = data?.action;
 

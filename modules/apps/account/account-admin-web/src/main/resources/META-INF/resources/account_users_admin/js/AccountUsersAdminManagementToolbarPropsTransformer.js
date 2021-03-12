@@ -37,7 +37,7 @@ const updateAccountUsers = (portletNamespace, url) => {
 
 export default function propsTransformer({portletNamespace, ...otherProps}) {
 	const activateAccountUsers = (itemData) => {
-		updateAccountUsers(portletNamespace, itemData.activateAccountUsersURL);
+		updateAccountUsers(portletNamespace, itemData?.activateAccountUsersURL);
 	};
 
 	const deactivateAccountUsers = (itemData) => {
@@ -50,7 +50,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		) {
 			updateAccountUsers(
 				portletNamespace,
-				itemData.deactivateAccountUsersURL
+				itemData?.deactivateAccountUsersURL
 			);
 		}
 	};
@@ -65,7 +65,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 		) {
 			updateAccountUsers(
 				portletNamespace,
-				itemData.deleteAccountUsersURL
+				itemData?.deleteAccountUsersURL
 			);
 		}
 	};
@@ -76,24 +76,27 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			multiple: true,
 			onSelect: (selectedItem) => {
 				if (selectedItem) {
-					const redirectURL = createPortletURL(itemData.redirectURL, {
-						accountEntriesNavigation: 'accounts',
-						accountEntryIds: selectedItem.value,
-					});
+					const redirectURL = createPortletURL(
+						itemData?.redirectURL,
+						{
+							accountEntriesNavigation: 'accounts',
+							accountEntryIds: selectedItem.value,
+						}
+					);
 
 					navigate(redirectURL);
 				}
 			},
 			selectEventName: `${portletNamespace}selectAccountEntries`,
-			title: Liferay.Language.get(itemData.dialogTitle),
-			url: itemData.accountEntriesSelectorURL,
+			title: itemData?.dialogTitle,
+			url: itemData?.accountEntriesSelectorURL,
 		});
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
-			const data = item.data;
+			const data = item?.data;
 
 			const action = data?.action;
 
@@ -111,17 +114,13 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 			}
 		},
 		onCreateButtonClick: (event, {item}) => {
-			const data = item.data;
-
-			if (!data) {
-				return;
-			}
+			const data = item?.data;
 
 			openSelectionModal({
 				id: `${portletNamespace}addAccountUser`,
 				onSelect: (selectedItem) => {
 					const addAccountUserURL = createPortletURL(
-						data.addAccountUserURL,
+						data?.addAccountUserURL,
 						{
 							accountEntryId: selectedItem.accountentryid,
 						}
@@ -130,8 +129,8 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 					navigate(addAccountUserURL);
 				},
 				selectEventName: `${portletNamespace}selectAccountEntry`,
-				title: Liferay.Language.get(data.dialogTitle),
-				url: data.accountEntrySelectorURL,
+				title: data?.dialogTitle,
+				url: data?.accountEntrySelectorURL,
 			});
 		},
 	};
