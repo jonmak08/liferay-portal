@@ -19,38 +19,44 @@ export default function propsTransformer({
 	portletNamespace,
 	...otherProps
 }) {
-	const deleteEntries = () => {
-		if (
-			trashEnabled ||
-			confirm(
-				Liferay.Language.get('are-you-sure-you-want-to-delete-this')
-			)
-		) {
-			const form = document.getElementById(`${portletNamespace}fm`);
-
-			const searchContainer = Liferay.SearchContainer.get(
-				`${portletNamespace}blogEntries`
-			);
-
-			postForm(form, {
-				data: {
-					cmd: deleteEntriesCmd,
-					deleteEntryIds: Liferay.Util.listCheckedExcept(
-						form,
-						`${portletNamespace}allRowIds`
-					),
-					selectAll: searchContainer.select?.get('bulkSelection'),
-				},
-				url: deleteEntriesURL,
-			});
-		}
-	};
-
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
 			if (item?.data?.action === 'deleteEntries') {
-				deleteEntries();
+				if (
+					trashEnabled ||
+					confirm(
+						Liferay.Language.get(
+							'are-you-sure-you-want-to-delete-this'
+						)
+					)
+				) {
+					const form = document.getElementById(
+						`${portletNamespace}fm`
+					);
+
+					if (!form) {
+						return;
+					}
+
+					const searchContainer = Liferay.SearchContainer.get(
+						`${portletNamespace}blogEntries`
+					);
+
+					postForm(form, {
+						data: {
+							cmd: deleteEntriesCmd,
+							deleteEntryIds: Liferay.Util.listCheckedExcept(
+								form,
+								`${portletNamespace}allRowIds`
+							),
+							selectAll: searchContainer.select?.get(
+								'bulkSelection'
+							),
+						},
+						url: deleteEntriesURL,
+					});
+				}
 			}
 		},
 	};

@@ -13,43 +13,47 @@
  */
 
 export default function propsTransformer({portletNamespace, ...otherProps}) {
-	const deleteImages = () => {
-		if (
-			confirm(
-				Liferay.Language.get(
-					'are-you-sure-you-want-to-delete-the-selected-images'
-				)
-			)
-		) {
-			const form = document.getElementById(`${portletNamespace}fm`);
-
-			if (form) {
-				var cmd = form.querySelector(`#${portletNamespace}cmd`);
-
-				cmd?.setAttribute('value', 'delete');
-
-				var deleteFileEntryIds = form.querySelector(
-					`#${portletNamespace}deleteFileEntryIds`
-				);
-
-				deleteFileEntryIds?.setAttribute(
-					'value',
-					Liferay.Util.listCheckedExcept(
-						form,
-						`${portletNamespace}allRowIds`
-					)
-				);
-
-				submitForm(form);
-			}
-		}
-	};
-
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
 			if (item?.data?.action === 'deleteImages') {
-				deleteImages();
+				if (
+					confirm(
+						Liferay.Language.get(
+							'are-you-sure-you-want-to-delete-the-selected-images'
+						)
+					)
+				) {
+					const form = document.getElementById(
+						`${portletNamespace}fm`
+					);
+
+					if (!form) {
+						return;
+					}
+
+					const cmd = form.querySelector(`#${portletNamespace}cmd`);
+
+					if (cmd) {
+						cmd.setAttribute('value', 'delete');
+					}
+
+					const deleteFileEntryIds = form.querySelector(
+						`#${portletNamespace}deleteFileEntryIds`
+					);
+
+					if (deleteFileEntryIds) {
+						deleteFileEntryIds.setAttribute(
+							'value',
+							Liferay.Util.listCheckedExcept(
+								form,
+								`${portletNamespace}allRowIds`
+							)
+						);
+					}
+
+					submitForm(form);
+				}
 			}
 		},
 	};
