@@ -28,7 +28,6 @@ DLViewMoreMenuItemsDisplayContext dlViewMoreMenuItemsDisplayContext = new DLView
 
 <clay:management-toolbar
 	clearResultsURL="<%= dlViewMoreMenuItemsDisplayContext.getClearResultsURL() %>"
-	componentId="dlViewMoreMenuItemsManagementToolbar"
 	disabled="<%= dlViewMoreMenuItemsDisplayContext.getTotalItems() == 0 %>"
 	itemsTotal="<%= dlViewMoreMenuItemsDisplayContext.getTotalItems() %>"
 	searchActionURL="<%= dlViewMoreMenuItemsDisplayContext.getSearchActionURL() %>"

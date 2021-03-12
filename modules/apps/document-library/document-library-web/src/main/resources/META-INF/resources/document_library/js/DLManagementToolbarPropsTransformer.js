@@ -223,7 +223,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const action = item?.data?.action;
 
 			if (action === 'checkin') {
 				checkIn();
@@ -248,9 +248,7 @@ export default function propsTransformer({
 			}
 		},
 		onFilterDropdownItemClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'openDocumentTypesSelector') {
+			if (item?.data?.action === 'openDocumentTypesSelector') {
 				openSelectionModal({
 					onSelect(selectedItem) {
 						if (selectedItem) {
