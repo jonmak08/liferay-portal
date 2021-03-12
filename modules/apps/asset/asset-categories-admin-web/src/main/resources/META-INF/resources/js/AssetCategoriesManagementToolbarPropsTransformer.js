@@ -39,26 +39,28 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 				if (category) {
 					location.href = addParams(
 						`${portletNamespace}categoryId=${category.categoryId}`,
-						itemData.viewCategoriesURL
+						itemData?.viewCategoriesURL
 					);
 				}
 			},
 			selectEventName: `${portletNamespace}selectCategory`,
 			title: Liferay.Language.get('select-category'),
-			url: itemData.categoriesSelectorURL,
+			url: itemData?.categoriesSelectorURL,
 		});
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
+			const data = item?.data;
+
+			const action = data?.action;
 
 			if (action === 'deleteSelectedCategories') {
 				deleteSelectedCategories();
 			}
 			else if (action === 'selectCategory') {
-				selectCategory();
+				selectCategory(data);
 			}
 		},
 	};
