@@ -20,9 +20,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteRecordSets') {
+			if (item?.data?.action === 'deleteRecordSets') {
 				if (
 					confirm(
 						Liferay.Language.get(
@@ -42,9 +40,9 @@ export default function propsTransformer({
 						`#${otherProps.searchContainerId}`
 					);
 
-					if (searchContainer) {
-						form.setAttribute('method', 'post');
+					form.setAttribute('method', 'post');
 
+					if (searchContainer) {
 						const recordSetIds = form.querySelector(
 							`#${portletNamespace}recordSetIds`
 						);
@@ -57,10 +55,10 @@ export default function propsTransformer({
 									`${portletNamespace}allRowIds`
 								)
 							);
-
-							submitForm(form, deleteRecordSetsURL);
 						}
 					}
+
+					submitForm(form, deleteRecordSetsURL);
 				}
 			}
 		},

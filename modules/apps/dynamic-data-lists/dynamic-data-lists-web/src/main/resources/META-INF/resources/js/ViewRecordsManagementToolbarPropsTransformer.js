@@ -22,9 +22,7 @@ export default function propsTransformer({
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			const action = item.data?.action;
-
-			if (action === 'deleteRecords') {
+			if (item?.data?.action === 'deleteRecords') {
 				if (
 					confirm(
 						Liferay.Language.get(
@@ -44,9 +42,9 @@ export default function propsTransformer({
 						`#${portletNamespace}ddlRecord`
 					);
 
-					if (searchContainer) {
-						form.setAttribute('method', 'post');
+					form.setAttribute('method', 'post');
 
+					if (searchContainer) {
 						postForm(form, {
 							data: {
 								recordIds: Liferay.Util.listCheckedExcept(
