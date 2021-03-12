@@ -19,25 +19,23 @@ export default function propsTransformer({
 	portletNamespace,
 	...otherProps
 }) {
-	const deleteSelectedRedirectEntries = () => {
-		const form = document.getElementById(`${portletNamespace}fm`);
-
-		postForm(form, {
-			data: {
-				deleteEntryIds: Liferay.Util.listCheckedExcept(
-					form,
-					`${portletNamespace}allRowIds`
-				),
-			},
-			url: deleteRedirectEntriesURL,
-		});
-	};
-
 	return {
 		...otherProps,
 		onActionButtonClick: (event, {item}) => {
 			if (item?.data?.action === 'deleteSelectedRedirectEntries') {
-				deleteSelectedRedirectEntries();
+				const form = document.getElementById(`${portletNamespace}fm`);
+
+				if (form) {
+					postForm(form, {
+						data: {
+							deleteEntryIds: Liferay.Util.listCheckedExcept(
+								form,
+								`${portletNamespace}allRowIds`
+							),
+						},
+						url: deleteRedirectEntriesURL,
+					});
+				}
 			}
 		},
 	};

@@ -22,31 +22,35 @@ export default function propsTransformer({
 	const ignoreSelectedRedirectNotFoundEntries = () => {
 		const form = document.getElementById(`${portletNamespace}fm`);
 
-		postForm(form, {
-			data: {
-				deleteEntryIds: Liferay.Util.listCheckedExcept(
-					form,
-					`${portletNamespace}allRowIds`
-				),
-				ignored: true,
-			},
-			url: editRedirectNotFoundEntriesURL,
-		});
+		if (form) {
+			postForm(form, {
+				data: {
+					deleteEntryIds: Liferay.Util.listCheckedExcept(
+						form,
+						`${portletNamespace}allRowIds`
+					),
+					ignored: true,
+				},
+				url: editRedirectNotFoundEntriesURL,
+			});
+		}
 	};
 
 	const unignoreSelectedRedirectNotFoundEntries = () => {
 		const form = document.getElementById(`${portletNamespace}fm`);
 
-		postForm(form, {
-			data: {
-				deleteEntryIds: Liferay.Util.listCheckedExcept(
-					form,
-					`${portletNamespace}allRowIds`
-				),
-				ignored: false,
-			},
-			url: editRedirectNotFoundEntriesURL,
-		});
+		if (form) {
+			postForm(form, {
+				data: {
+					deleteEntryIds: Liferay.Util.listCheckedExcept(
+						form,
+						`${portletNamespace}allRowIds`
+					),
+					ignored: false,
+				},
+				url: editRedirectNotFoundEntriesURL,
+			});
+		}
 	};
 
 	return {
