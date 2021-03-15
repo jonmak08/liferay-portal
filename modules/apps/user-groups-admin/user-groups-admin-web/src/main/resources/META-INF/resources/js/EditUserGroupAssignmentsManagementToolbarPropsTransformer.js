@@ -51,31 +51,29 @@ export default function propsTransformer({
 	const removeUsers = () => {
 		const form = document.getElementById(`${portletNamespace}fm`);
 
-		if (!form) {
-			return;
+		if (form) {
+			postForm(form, {
+				data: {
+					redirect: portletURL,
+					removeUserIds: Liferay.Util.listCheckedExcept(
+						form,
+						`${portletNamespace}allRowIds`
+					),
+				},
+				url: editUserGroupAssignmentsURL,
+			});
 		}
-
-		postForm(form, {
-			data: {
-				redirect: portletURL,
-				removeUserIds: Liferay.Util.listCheckedExcept(
-					form,
-					`${portletNamespace}allRowIds`
-				),
-			},
-			url: editUserGroupAssignmentsURL,
-		});
 	};
 
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			if (item.data?.action === 'removeUsers') {
+			if (item?.data?.action === 'removeUsers') {
 				removeUsers();
 			}
 		},
 		onCreateButtonClick(event, {item}) {
-			if (item.data?.action === 'addUsers') {
+			if (item?.data?.action === 'addUsers') {
 				addUsers();
 			}
 		},

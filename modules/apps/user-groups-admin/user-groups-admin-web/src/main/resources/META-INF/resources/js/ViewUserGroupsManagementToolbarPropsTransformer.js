@@ -16,7 +16,7 @@ export default function propsTransformer({portletNamespace, ...otherProps}) {
 	return {
 		...otherProps,
 		onActionButtonClick(event, {item}) {
-			if (item.data?.action === 'deleteUserGroups') {
+			if (item?.data?.action === 'deleteUserGroups') {
 				{
 					window[`${portletNamespace}deleteUserGroups`]();
 				}
