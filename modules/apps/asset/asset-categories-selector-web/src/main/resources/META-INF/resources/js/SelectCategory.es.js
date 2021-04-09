@@ -63,42 +63,42 @@ function SelectCategory({
 	const selectedNodesRef = useRef(null);
 
 	const handleAddCategoryClick = useCallback(() => {
-		const dialog = Liferay.Util.getWindow(itemSelectorSaveEvent);
-		const footer = dialog.getToolbar('footer');
+		const addButton = document.getElementById('#addButton');
 
-		footer.get('boundingBox').one('#addButton').hide();
+		if (addButton) {
+			addButton.style.display = 'none';
+		}
 
-		footer.get('boundingBox').one('#cancelButton').hide();
+		const cancelButton = document.getElementById('#cancelButton');
+
+		if (cancelButton) {
+			cancelButton.style.display = 'none';
+		}
 
 		Liferay.Util.navigate(addCategoryURL);
-	}, [addCategoryURL, itemSelectorSaveEvent]);
+	}, [addCategoryURL]);
 
 	useEffect(() => {
-		const dialog = Liferay.Util.getWindow(itemSelectorSaveEvent);
-		const footer = dialog.getToolbar('footer');
+		const addCategoryToolbarButton = document.querySelectorAll(
+			'.add-category-toolbar-button'
+		);
 
-		if (!dialog.get('initialTitle')) {
-			dialog.set(
-				'initialTitle',
-				dialog.headerNode.one('.modal-title').text()
-			);
+		addCategoryToolbarButton.forEach((item) => {
+			item.style.display = 'none';
+		});
+
+		const addButton = document.getElementById('#addButton');
+
+		if (addButton) {
+			addButton.style.display = 'block';
 		}
 
-		footer.get('boundingBox').all('.add-category-toolbar-button').hide();
+		const cancelButton = document.getElementById('#cancelButton');
 
-		footer.get('boundingBox').one('#addButton').show();
-
-		footer.get('boundingBox').one('#cancelButton').show();
-
-		if (
-			dialog.get('initialTitle') !==
-			dialog.headerNode.one('.modal-title').text()
-		) {
-			dialog.headerNode
-				.one('.modal-title')
-				.text(dialog.get('initialTitle'));
+		if (cancelButton) {
+			cancelButton.style.display = 'block';
 		}
-	}, [itemSelectorSaveEvent]);
+	});
 
 	const handleSelectionChange = (selectedNodes) => {
 		const data = {};
