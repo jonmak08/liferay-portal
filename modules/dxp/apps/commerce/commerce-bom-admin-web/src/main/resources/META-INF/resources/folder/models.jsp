@@ -143,51 +143,46 @@ CommerceBOMFolder commerceBOMFolder = commerceBOMAdminDisplayContext.getCommerce
 		}
 	</aui:script>
 
-	<aui:script use="liferay-item-selector-dialog">
-		window.document
-			.querySelector('#<portlet:namespace />addCommerceBOMFolderApplicationRel')
-			.addEventListener('click', (event) => {
+	<aui:script sandbox="<%= true %>">
+		const addCommerceBOMFolderApplicationRel = document.getElementById(
+			'<portlet:namespace />addCommerceBOMFolderApplicationRel'
+		);
+
+		if (addCommerceBOMFolderApplicationRel) {
+			addCommerceBOMFolderApplicationRel.addEventListener('click', (event) => {
 				event.preventDefault();
 
-				var itemSelectorDialog = new A.LiferayItemSelectorDialog({
-					eventName: 'commerceApplicationModelsSelectItem',
-					on: {
-						selectedItemChange: function (event) {
-							var <portlet:namespace />addCommerceApplicationModelIds = [];
+				Liferay.Util.openSelectionModal({
+					multiple: true,
+					onSelect: (selectedItems) => {
+						if (!selectedItems || !selectedItems.length) {
+							return;
+						}
 
-							var selectedItems = event.newVal;
+						const commerceApplicationModelIds = document.getElementById(
+							'<portlet:namespace />commerceApplicationModelIds'
+						);
 
-							if (selectedItems) {
-								A.Array.each(
-									selectedItems,
-									(item, index, selectedItems) => {
-										<portlet:namespace />addCommerceApplicationModelIds.push(
-											item.commerceApplicationModelId
-										);
-									}
-								);
+						if (commerceApplicationModelIds) {
+							const values = selectedItems.map(
+								(item) => item.commerceApplicationModelId
+							);
 
-								window.document.querySelector(
-									'#<portlet:namespace />commerceApplicationModelIds'
-								).value = <portlet:namespace />addCommerceApplicationModelIds.join(
-									','
-								);
+							commerceApplicationModelIds.value = values.join(',');
+						}
 
-								var fm = window.document.querySelector(
-									'#<portlet:namespace />fm'
-								);
+						const form = document.getElementById('<portlet:namespace />fm');
 
-								submitForm(fm);
-							}
-						},
+						if (form) {
+							submitForm(fm);
+						}
 					},
 					title:
 						'<liferay-ui:message arguments="<%= HtmlUtil.escape(commerceBOMFolder.getName()) %>" key="add-new-entry-to-x" />',
 					url:
 						'<%= commerceBOMAdminDisplayContext.getCommerceApplicationModelItemSelectorUrl() %>',
 				});
-
-				itemSelectorDialog.open();
 			});
+		}
 	</aui:script>
 </c:if>
