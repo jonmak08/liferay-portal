@@ -153,7 +153,14 @@
 							var direction = this._getSelectionDirection();
 							var ranges = elementOrSelection.getRanges();
 							var range = ranges[0];
-							var rangeClientRects = range.getClientRects(true);
+							var rangeClientRects;
+
+							try {
+								rangeClientRects = range.getClientRects(true);
+							}
+							catch (error) {
+								return;
+							}
 
 							var firstClientRect = rangeClientRects[0];
 							var lastClientRect =
