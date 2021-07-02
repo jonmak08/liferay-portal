@@ -410,6 +410,7 @@
 				'imagealt',
 				'linktoolbar',
 				'plusbutton',
+				'tabletoolbar',
 				'toolbarbuttons',
 			],
 		});
