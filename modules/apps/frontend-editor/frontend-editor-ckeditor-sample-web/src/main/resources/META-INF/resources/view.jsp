@@ -18,7 +18,7 @@
 
 <div>
 	<liferay-editor:editor
-		contents="<h1>Balloon Editor</h1><p>This is a sample portlet with a <a href=\"https://example.com\">link</a>.</p><img src=\"https://images.unsplash.com/photo-1539037116277-4db20889f2d4?fit=crop&w=300\">"
+		contents="<h1>Balloon Editor</h1><p>This is a sample portlet with a <a href=\"https://example.com\">link</a>.</p><img src=\"https://images.unsplash.com/photo-1539037116277-4db20889f2d4?fit=crop&w=300\"><table><thead><tr><td>Header1</td><td>Header2</td><td>Header3</td></tr></thead><tbody><tr><td>A</td><td>B</td><td>C</td></tr><tr><td>D</td><td>E</td><td>F</td></tr><tr><td>G</td><td>H</td><td>I</td></tr></tbody></table>"
 		editorName="ballooneditor"
 		name="contentEditor"
 		placeholder="content"
